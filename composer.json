@@ -1,0 +1,11 @@
+{
+  "name": "javanile/webrequest",
+  "require": {
+    "ext-json": "*",
+    "guzzlehttp/guzzle": "^7.0"
+  },
+  "require-dev": {
+    "heroku/heroku-buildpack-php": "*",
+    "pestphp/pest": "^1.0"
+  }
+}
