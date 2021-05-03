@@ -1,6 +1,7 @@
 {
   "name": "javanile/webrequest",
   "require": {
+    "php": "^8.0",
     "ext-json": "*"
   },
   "require-dev": {
