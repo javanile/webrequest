@@ -1,4 +1,4 @@
-# webrequest
+# Web Request
 
 XData is the best way to extract data from any kind of Web Service and import it into Google Spreadsheet
 
