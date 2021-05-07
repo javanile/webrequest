@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  apache:
+    build: .
+    ports:
+    - 10000:80
+    volumes:
+    - ./:/var/www/html
