@@ -81,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
         <div class="row">
             <div class="col-lg-8 pr-0">
                 <div class="bs-component">
-                    <div class="card border-primary mb-3">
+                    <div class="card border-info mb-3">
                         <div class="card-header"><i class="far fa-file-code"></i> Header</div>
                         <pre class="mb-0"><code id="script" lass="php"><?=htmlentities($script, ENT_COMPAT)?></code></pre>
                         <div class="card-footer text-muted">
@@ -92,14 +92,14 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
             </div>
             <div class="col-lg-4">
                 <div class="bs-component">
-                    <div class="card border-primary mb-3">
+                    <div class="card mb-3">
                         <div class="card-header">Header</div>
                         <div class="card-body">
                             <h4 class="card-title">Primary card title</h4>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
                     </div>
-                    <div class="card border-secondary mb-3">
+                    <div class="card mb-3">
                         <div class="card-header">Header</div>
                         <div class="card-body">
                             <h4 class="card-title">Secondary card title</h4>
@@ -113,9 +113,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     <footer id="footer">
         <div class="row">
             <div class="col-lg-12">
-                <p>Made by <a href="https://thomaspark.co/">Thomas Park</a>.</p>
-                <p>Code released under the <a href="https://github.com/thomaspark/bootswatch/blob/master/LICENSE">MIT License</a>.</p>
-                <p>Based on <a href="https://getbootstrap.com/" rel="nofollow">Bootstrap</a>. Icons from <a href="https://fontawesome.com/" rel="nofollow">Font Awesome</a>. Web fonts from <a href="https://fonts.google.com/" rel="nofollow">Google</a>.</p>
+                <p>Made by <a href="https://www.linkedin.com/in/yafb/" target="_blank">Francesco Bianco</a>.</p>
+                <p>Code released under the <a href="https://github.com/javanile/webrequest/blob/main/LICENSE" target="_blank">MIT License</a>. Hosted by <a href="https://heroku.com/" target="_blank">Heroku</a>.</p>
+                <p>Based on <a href="https://bootswatch.com/" rel="nofollow" target="_blank">Bootswatch</a> &amp; <a href="https://getbootstrap.com/" rel="nofollow" target="_blank">Bootstrap</a>. Icons from <a href="https://fontawesome.com/" rel="nofollow" target="_blank">Font Awesome</a>. Web fonts from <a href="https://fonts.google.com/" rel="nofollow" target="_blank">Google</a>.</p>
             </div>
         </div>
     </footer>
