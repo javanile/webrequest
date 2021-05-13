@@ -52,18 +52,13 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="../help/">Help</a>
+                    <a class="nav-link" href="../help/">get started</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../help/">showcase</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="https://github.com/javanile/awesome-webrequest" target="_blank">awesome</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ms-md-auto">
-                <li class="nav-item">
-                    <a target="_blank" rel="noopener" class="nav-link" href="https://github.com/thomaspark/bootswatch/"><i class="fa fa-github"></i> GitHub</a>
-                </li>
-                <li class="nav-item">
-                    <a target="_blank" rel="noopener" class="nav-link" href="https://twitter.com/bootswatch"><i class="fa fa-twitter"></i> Twitter</a>
                 </li>
             </ul>
         </div>
