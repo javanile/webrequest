@@ -3,6 +3,10 @@
 #var_dump($_SERVER);
 $uri = $_SERVER['REQUEST_URI'];
 $file = tempnam(sys_get_temp_dir(), 'FOO.php');
+$vendor = 'javanile';
+$package = 'webrequest';
+$platform = 'github';
+$repository = 'javanile/webrequest';
 $sources = [
     'github' => '',
 ];
@@ -27,72 +31,28 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Bootswatch: Minty</title>
+    <title>webrequest.ml</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/minty/bootstrap.min.css" integrity="sha384-H4X+4tKc7b8s4GoMrylmy2ssQYpDHoqzPa9aKXbDwPoPUA3Ra8PA5dGzijN+ePnH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/styles/default.min.css">
-    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/highlight.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/languages/php.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/styles/zenburn.min.css">
 </head>
 <body>
-
-<div class="navbar navbar-expand-lg navbar-dark bg-primary">
+<div class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
     <div class="container">
-        <a href="../" class="navbar-brand">Bootswatch</a>
+        <a href="../" class="navbar-brand">webrequest.ml</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
-                    <div class="dropdown-menu" aria-labelledby="themes">
-                        <a class="dropdown-item" href="../default/">Default</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="../cerulean/">Cerulean</a>
-                        <a class="dropdown-item" href="../cosmo/">Cosmo</a>
-                        <a class="dropdown-item" href="../cyborg/">Cyborg</a>
-                        <a class="dropdown-item" href="../darkly/">Darkly</a>
-                        <a class="dropdown-item" href="../flatly/">Flatly</a>
-                        <a class="dropdown-item" href="../journal/">Journal</a>
-                        <a class="dropdown-item" href="../litera/">Litera</a>
-                        <a class="dropdown-item" href="../lumen/">Lumen</a>
-                        <a class="dropdown-item" href="../lux/">Lux</a>
-                        <a class="dropdown-item" href="../materia/">Materia</a>
-                        <a class="dropdown-item" href="../minty/">Minty</a>
-                        <a class="dropdown-item" href="../morph/">Morph</a>
-                        <a class="dropdown-item" href="../pulse/">Pulse</a>
-                        <a class="dropdown-item" href="../quartz/">Quartz</a>
-                        <a class="dropdown-item" href="../sandstone/">Sandstone</a>
-                        <a class="dropdown-item" href="../simplex/">Simplex</a>
-                        <a class="dropdown-item" href="../sketchy/">Sketchy</a>
-                        <a class="dropdown-item" href="../slate/">Slate</a>
-                        <a class="dropdown-item" href="../solar/">Solar</a>
-                        <a class="dropdown-item" href="../spacelab/">Spacelab</a>
-                        <a class="dropdown-item" href="../superhero/">Superhero</a>
-                        <a class="dropdown-item" href="../united/">United</a>
-                        <a class="dropdown-item" href="../vapor/">Vapor</a>
-                        <a class="dropdown-item" href="../yeti/">Yeti</a>
-                        <a class="dropdown-item" href="../zephyr/">Zephyr</a>
-                    </div>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../help/">Help</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://blog.bootswatch.com/">Blog</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="download">Minty <span class="caret"></span></a>
-                    <div class="dropdown-menu" aria-labelledby="download">
-                        <a class="dropdown-item" rel="noopener" target="_blank" href="https://jsfiddle.net/bootswatch/3bojykn2/">Open in JSFiddle</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="../5/minty/bootstrap.min.css" download>bootstrap.min.css</a>
-                        <a class="dropdown-item" href="../5/minty/bootstrap.css" download>bootstrap.css</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="../5/minty/_variables.scss" download>_variables.scss</a>
-                        <a class="dropdown-item" href="../5/minty/_bootswatch.scss" download>_bootswatch.scss</a>
-                    </div>
+                    <a class="nav-link" href="https://github.com/javanile/awesome-webrequest" target="_blank">awesome</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-md-auto">
@@ -106,21 +66,43 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
         </div>
     </div>
 </div>
-
 <div class="container">
     <div class="bs-docs-section">
         <div class="row">
             <div class="col-lg-12">
                 <div class="page-header">
-                    <h1 id="typography">Typography</h1>
+                    <h1 class="mb-3"><i class="fab fa-<?=$platform?>"></i> <?=$vendor?> / <?=$package?></h1>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-8 pr-0">
                 <div class="bs-component">
-                    <pre><code id="script" lass="php"><?=$script?></code></pre>
-                    <p class="lead">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                    <div class="card border-primary mb-3">
+                        <div class="card-header"><i class="far fa-file-code"></i> Header</div>
+                        <pre class="mb-0"><code id="script" lass="php"><?=htmlentities($script, ENT_COMPAT)?></code></pre>
+                        <div class="card-footer text-muted">
+                            2 days ago
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="bs-component">
+                    <div class="card border-primary mb-3">
+                        <div class="card-header">Header</div>
+                        <div class="card-body">
+                            <h4 class="card-title">Primary card title</h4>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card border-secondary mb-3">
+                        <div class="card-header">Header</div>
+                        <div class="card-body">
+                            <h4 class="card-title">Secondary card title</h4>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -128,15 +110,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     <footer id="footer">
         <div class="row">
             <div class="col-lg-12">
-                <ul class="list-unstyled">
-                    <li class="float-end"><a href="#top">Back to top</a></li>
-                    <li><a href="https://blog.bootswatch.com/">Blog</a></li>
-                    <li><a href="https://blog.bootswatch.com/rss/">RSS</a></li>
-                    <li><a href="https://twitter.com/bootswatch">Twitter</a></li>
-                    <li><a href="https://github.com/thomaspark/bootswatch">GitHub</a></li>
-                    <li><a href="../help/#api">API</a></li>
-                    <li><a href="../help/#donate">Donate</a></li>
-                </ul>
                 <p>Made by <a href="https://thomaspark.co/">Thomas Park</a>.</p>
                 <p>Code released under the <a href="https://github.com/thomaspark/bootswatch/blob/master/LICENSE">MIT License</a>.</p>
                 <p>Based on <a href="https://getbootstrap.com/" rel="nofollow">Bootstrap</a>. Icons from <a href="https://fontawesome.com/" rel="nofollow">Font Awesome</a>. Web fonts from <a href="https://fonts.google.com/" rel="nofollow">Google</a>.</p>
@@ -144,6 +117,13 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
         </div>
     </footer>
 </div>
+
+<a href="https://github.com/you" target="_blank"><img loading="lazy" width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_green_007200.png?resize=149%2C149" style="position:absolute;top:0;right:0;border:0;" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/languages/php.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<script>hljs.highlightAll();/*hljs.initLineNumbersOnLoad();*/</script>
 
 </body>
 </html>
