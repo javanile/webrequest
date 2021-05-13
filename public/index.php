@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 <div class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
     <div class="container">
         <a href="../" class="navbar-brand">
-            <img src="/logo.png" alt="webrequest.ml"> webrequest.ml
+            <img src="/logo.png" width="27" height="27" alt="webrequest.ml"> webrequest.ml
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
