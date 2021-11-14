@@ -164,11 +164,14 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
                                     <label for="webrequest-body">Body</label>
                                     <textarea class="form-control" id="webrequest-body" rows="3"></textarea>
                                 </div>
-                                <div class="form-group">
+                                <div id="webrequest-result-panel" class="form-group" style="display: none">
                                     <label for="webrequest-result">Result</label>
                                     <textarea class="form-control" id="webrequest-result" rows="3" readonly></textarea>
                                 </div>
-                                <button id="webrequest-submit" type="button" class="btn btn-primary w-100">Submit</button>
+                                <button id="webrequest-submit" type="button" class="btn btn-primary w-100">
+                                    <span id="webrequest-submit-spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none"></span>
+                                    <span id="webrequest-submit-label">Submit</span>
+                                </button>
                             </form>
                         </div>
                     </div>
@@ -205,12 +208,18 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     document.getElementById('webrequest-submit').addEventListener('click', event => {
         event.preventDefault();
         let url = location.origin + location.pathname;
+        document.getElementById('webrequest-result').value = 'Loading...';
+        document.getElementById('webrequest-submit-label').style.display = 'none';
+        document.getElementById('webrequest-submit-spinner').style.display = 'inline-block';
         fetch(url, {
             method: 'POST',
             mode: 'no-cors',
         }).then(response => {
             return response.text().then(result => {
                 document.getElementById('webrequest-result').value = result;
+                document.getElementById('webrequest-result-panel').style.display = 'block';
+                document.getElementById('webrequest-submit-label').style.display = 'inline';
+                document.getElementById('webrequest-submit-spinner').style.display = 'none';
             });
         });
     }, false);
