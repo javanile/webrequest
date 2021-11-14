@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>webrequest.ml</title>
+    <title>webrequest.cc</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/minty/bootstrap.min.css" integrity="sha384-H4X+4tKc7b8s4GoMrylmy2ssQYpDHoqzPa9aKXbDwPoPUA3Ra8PA5dGzijN+ePnH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
@@ -39,26 +39,28 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/brands.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/styles/solarized-light.min.css">
     <link rel="shortcut icon" href="/favicon.ico">
+    <style>
+        .navbar-shadow {
+            box-shadow: 0 1px 2px 0 #333, 0 2px 6px 2px #CCC;
+        }
+    </style>
 </head>
 <body>
-<div class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
+<div class="navbar navbar-expand-lg navbar-dark navbar-shadow bg-primary mb-3 navbar-shadow">
     <div class="container">
-        <a href="../" class="navbar-brand">
-            <img src="/logo.png" width="27" height="27" alt="webrequest.ml"> webrequest.ml
+        <a href="../" class="navbar-brand font-weight-bold">
+            <img src="/logo.png" width="27" height="27" alt="webrequest.ml"> webrequest<small class="text-white-50">.cc</small>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="../help/">get started</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../help/">showcase</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/javanile/awesome-webrequest" target="_blank">awesome</a>
+        <div class="collapse navbar-collapse  pb-0 mr-0" id="navbarResponsive">
+        <span class="navbar-text font-italic text-white-50 pb-1 mr-auto">
+           Webhooks Adapter suitable for 99% of No-code scenarios
+        </span>
+            <ul class="navbar-nav pb-0 d-flex">
+                <li class="nav-item pb-0">
+                    <a class="nav-link  pb-1" href="https://github.com/javanile/awesome-webrequest" target="_blank">...find out more on GitHub</a>
                 </li>
             </ul>
         </div>
