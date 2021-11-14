@@ -43,19 +43,42 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
         .navbar-shadow {
             box-shadow: 0 1px 2px 0 #333, 0 2px 6px 2px #CCC;
         }
+        .card-shadow {
+            box-shadow: 0 0px 2px 0 #333;
+        }
+        .card-header, .card-footer {
+            background-color: #FFEDDF !important;
+        }
+        .navbar-dark .navbar-nav .nav-link, .text-white-70 {
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+        .background-text {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 0;
+            color: #888;
+            line-height: 36px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
 <div class="navbar navbar-expand-lg navbar-dark navbar-shadow bg-primary mb-3 navbar-shadow">
     <div class="container">
         <a href="../" class="navbar-brand font-weight-bold">
-            <img src="/logo.png" width="27" height="27" alt="webrequest.ml"> webrequest<small class="text-white-50">.cc</small>
+            <img src="/logo.png" width="27" height="27" alt="webrequest.ml"> webrequest<small class="text-white-70">.cc</small>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse  pb-0 mr-0" id="navbarResponsive">
-        <span class="navbar-text font-italic text-white-50 pb-1 mr-auto">
+        <span class="navbar-text font-italic text-white-70 pb-1 mr-auto">
            Webhooks Adapter suitable for 99% of No-code scenarios
         </span>
             <ul class="navbar-nav pb-0 d-flex">
@@ -78,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
         <div class="row">
             <div class="col-lg-8 pr-0">
                 <div class="bs-component">
-                    <div class="card border-info mb-3">
+                    <div class="card border-primary card-shadow mb-3">
                         <div class="card-header"><i class="far fa-file-code"></i> Header</div>
                         <pre class="mb-0"><code id="script" lass="php"><?=htmlentities($script, ENT_COMPAT)?></code></pre>
                         <div class="card-footer text-muted">
@@ -89,19 +112,73 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
             </div>
             <div class="col-lg-4">
                 <div class="bs-component">
-                    <div class="card mb-3">
-                        <div class="card-header">Header</div>
+                    <div class="card card-shadow mb-3">
+                        <div class="card-header">Insights</div>
                         <div class="card-body">
                             <h4 class="card-title">Primary card title</h4>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
                     </div>
-                    <div class="card mb-3">
-                        <div class="card-header">Header</div>
+                    <div class="card card-shadow mb-3">
+                        <div class="card-header">Try it out</div>
                         <div class="card-body">
-                            <h4 class="card-title">Secondary card title</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text">This action will make a web request, then it will show you the result.</p>
+                            <form>
+                                <div class="form-group">
+                                    <label for="webrequest-arguments">Arguments</label>
+                                    <div class="form-group row position-relative">
+                                        <div class="background-text">
+                                            =
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" placeholder="value1" value="value1">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" placeholder="value1" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row position-relative">
+                                        <div class="background-text">
+                                            =
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" placeholder="value2" value="value2">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" placeholder="value2" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row position-relative">
+                                    <div class="background-text">
+                                        =
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" placeholder="value3" value="value3">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" placeholder="value3">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="webrequest-body">Body</label>
+                                    <textarea class="form-control" id="webrequest-body" rows="3"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="webrequest-result">Result</label>
+                                    <textarea class="form-control" id="webrequest-result" rows="3" readonly></textarea>
+                                </div>
+                                <button id="webrequest-submit" type="button" class="btn btn-primary w-100">Submit</button>
+                            </form>
                         </div>
+                    </div>
+                    <div class="card card-shadow mb-3">
+                        <div class="card-header">Other & Popular</div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><a href="http://webrequest.cc/php-nocode/games" target="_blank">php-nocode/ifttt</a></li>
+                            <li class="list-group-item"><a href="http://webrequest.cc/php-nocode/games" target="_blank">php-nocode/games</a></li>
+                            <li class="list-group-item"><a href="http://webrequest.cc/php-nocode/games" target="_blank">php-nocode/tools</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -124,6 +201,19 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/languages/php.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
 <script>hljs.highlightAll();/*hljs.initLineNumbersOnLoad();*/</script>
-
+<script>
+    document.getElementById('webrequest-submit').addEventListener('click', event => {
+        event.preventDefault();
+        let url = location.origin + location.pathname;
+        fetch(url, {
+            method: 'POST',
+            mode: 'no-cors',
+        }).then(response => {
+            return response.text().then(result => {
+                document.getElementById('webrequest-result').value = result;
+            });
+        });
+    }, false);
+</script>
 </body>
 </html>
