@@ -2,7 +2,8 @@
   "name": "javanile/webrequest",
   "require": {
     "php": "^8.0",
-    "ext-json": "*"
+    "ext-json": "*",
+    "laravel/framework": "8.70.2"
   },
   "require-dev": {
     "heroku/heroku-buildpack-php": "*",

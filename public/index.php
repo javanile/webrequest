@@ -11,6 +11,8 @@ $sources = [
     'github' => '',
 ];
 
+$isRequest =
+
 $url = 'https://raw.githubusercontent.com/javanile/webrequest/main/tests/fixtures/script.php';
 if (in_array($uri, ['/'])) {
 
