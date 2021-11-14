@@ -1,19 +1,24 @@
 <?php
 
-#var_dump($_SERVER);
-$uri = $_SERVER['REQUEST_URI'];
-$file = tempnam(sys_get_temp_dir(), 'FOO.php');
-$vendor = 'javanile';
-$package = 'webrequest';
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+#ar_dump($_SERVER);
+$uri = explode('/', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+#var_dump($uri);
+ #$file =
+$vendor = $uri[1] ?: 'javanile';
+$package = $uri[2] ?: 'webrequest';
 $platform = 'github';
 $repository = 'javanile/webrequest';
 $sources = [
     'github' => '',
 ];
 
-$isRequest =
+$isRequest = $_SERVER['REQUEST_METHOD'] == 'POST';
+$controllerFile = tempnam(sys_get_temp_dir(), md5($_SERVER['REQUEST_URI']).'.php');
+$controllerUrl = 'https://raw.githubusercontent.com/'.$vendor.'/'.$package.'/main/webrequest.php';
 
-$url = 'https://raw.githubusercontent.com/javanile/webrequest/main/tests/fixtures/script.php';
 if (in_array($uri, ['/'])) {
 
 } else {
@@ -22,11 +27,12 @@ if (in_array($uri, ['/'])) {
 
 
 
-$script = file_get_contents($url);
-file_put_contents($file, $script);
 
-if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-    return require_once $file;
+if ($isRequest) {
+    $script = file_get_contents($url);
+    file_put_contents($file, $script);
+
+    return require_once $controllerFile;
 }
 ?>
 <!DOCTYPE html>

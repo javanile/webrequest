@@ -7,7 +7,7 @@ use Illuminate\Routing\Controller;
 class LaravelController extends Controller
 {
     /**
-     * Provision a new web server.
+     * Provision a new web request.
      *
      * @param Request $request
      * @return Response
