@@ -3,35 +3,32 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-#ar_dump($_SERVER);
 $uri = explode('/', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
-#var_dump($uri);
- #$file =
 $vendor = $uri[1] ?: 'javanile';
-$package = $uri[2] ?: 'webrequest';
+$package = $uri[2] ?? 'webrequest';
 $platform = 'github';
-$repository = 'javanile/webrequest';
-$sources = [
-    'github' => '',
-];
-
+$repository = $vendor.'/'.$package;
 $isRequest = $_SERVER['REQUEST_METHOD'] == 'POST';
-$controllerFile = tempnam(sys_get_temp_dir(), md5($_SERVER['REQUEST_URI']).'.php');
+$controllerFile = sys_get_temp_dir().'/'.md5($_SERVER['REQUEST_URI']).'.php';
 $controllerUrl = 'https://raw.githubusercontent.com/'.$vendor.'/'.$package.'/main/webrequest.php';
+$expireTime = time() - 10;
+$fromCache = false;
+$hasError = false;
+#var_dump(filemtime($controllerFile), $expireTime, filemtime($controllerFile) - $expireTime);
 
-if (in_array($uri, ['/'])) {
-
+if (!file_exists($controllerFile) || filemtime($controllerFile) < $expireTime) {
+    $controller = @file_get_contents($controllerUrl);
+    if ($controller) {
+        file_put_contents($controllerFile, $controller);
+    } else {
+        $hasError = true;
+    }
 } else {
-
+    $fromCache = true;
+    $controller = file_get_contents($controllerFile);
 }
 
-
-
-
 if ($isRequest) {
-    $script = file_get_contents($url);
-    file_put_contents($file, $script);
-
     return require_once $controllerFile;
 }
 ?>
@@ -111,7 +108,7 @@ if ($isRequest) {
                 <div class="bs-component">
                     <div class="card border-primary card-shadow mb-3">
                         <div class="card-header"><i class="far fa-file-code"></i> Header</div>
-                        <pre class="mb-0"><code id="script" lass="php"><?=htmlentities($script, ENT_COMPAT)?></code></pre>
+                        <pre class="mb-0"><code id="script" lass="php"><?=htmlentities($controller, ENT_COMPAT)?></code></pre>
                         <div class="card-footer text-muted">
                             2 days ago
                         </div>
@@ -190,6 +187,21 @@ if ($isRequest) {
                             <li class="list-group-item"><a href="http://webrequest.cc/php-nocode/games" target="_blank">php-nocode/games</a></li>
                             <li class="list-group-item"><a href="http://webrequest.cc/php-nocode/games" target="_blank">php-nocode/tools</a></li>
                         </ul>
+                    </div>
+                    <div class="card card-shadow mb-3">
+                        <div class="card-header">Debug</div>
+                        <div class="card-body">
+                            <table class="table table-borderless table-sm">
+                                <!--tr>
+                                    <th>Controller URL:</th>
+                                    <td><?=$controllerUrl?>
+                                </tr-->
+                                <tr>
+                                    <th>From cache:</th>
+                                    <td><?=$fromCache?'Yes':'No'?>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
