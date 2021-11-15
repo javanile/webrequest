@@ -12,6 +12,7 @@ $uri = explode('/', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 $vendor = $uri[1] ?: 'javanile';
 $package = $uri[2] ?? 'webrequest';
 $variant = $uri[3] ?? '';
+$variantFile = 'webrequest'.($variant ? '-'.$variant : '').'.php';
 $variantPath = $vendor.'/'.$package.($variant ? '/'.$variant : '');
 $publicUrl = 'http://'.$_SERVER['HTTP_HOST'].'/'.$variantPath.'?';
 $repository = $vendor.'/'.$package;
@@ -33,7 +34,8 @@ $variants = [];
 #var_dump(filemtime($controllerFile), $expireTime, filemtime($controllerFile) - $expireTime);
 
 if (!file_exists($controllerFile) || filemtime($controllerFile) < $expireTime) {
-    $controller = @file_get_contents($controllerUrl.'?ts='.time());
+    $client = new Github\Client();
+    $controller = $client->api('repo')->contents()->download($vendor, $package, $variantFile, 'main');
     if ($controller) {
         file_put_contents($controllerFile, $controller);
     } else {
