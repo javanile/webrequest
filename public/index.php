@@ -58,9 +58,9 @@ if (!file_exists($insightsFile) || filemtime($insightsFile) < $expireTime) {
 if ($isRequest) {
     // Update stats
     $currentMinute = intdiv(time(), 60);
-    $delta = $stats['minute'] > 0 ? $currentMinute - @$stats['minute'] : 0;
+    $delta = @$stats['minute'] > 0 ? $currentMinute - @$stats['minute'] : 0;
     $stats['samples'] = array_merge(array_fill(0, $delta, 0) ?: [], array_slice(@$stats['samples'] ?: [], 0, 60 - $delta));
-    $stats['samples'][0]++;
+    $stats['samples'][0] = @$stats['samples'][0] + 1;
     $stats['frequency'] = array_sum($stats['samples']);
     $stats['minute'] = $currentMinute;
     file_put_contents($statsFile, json_encode($stats));
