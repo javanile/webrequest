@@ -18,19 +18,20 @@ $repository = $vendor.'/'.$package;
 $platform = 'github';
 $isRequest = $_SERVER['REQUEST_METHOD'] == 'POST';
 $controllerUrl = 'https://raw.githubusercontent.com/'.$vendor.'/'.$package.'/main/webrequest'.($variant ? '-'.$variant : '').'.php';
+$editUrl = 'https://github.com/'.$vendor.'/'.$package.'/edit/main/webrequest'.($variant ? '-'.$variant : '').'.php';
 $controllerHash = md5($controllerUrl);
 $controllerFile = sys_get_temp_dir().'/'.$controllerHash.'.php';
 $insightsFile = sys_get_temp_dir().'/'.md5($_SERVER['REQUEST_URI']).'.php';
 $statsFile = sys_get_temp_dir().'/'.$controllerHash.'-stats.php';
 $stats = json_decode(@file_get_contents($statsFile), true);
-$expireTime = time() - 10;
+$expireTime = time() - 5;
 $fromCache = false;
 $hasError = false;
 $variants = [];
 #var_dump(filemtime($controllerFile), $expireTime, filemtime($controllerFile) - $expireTime);
 
 if (!file_exists($controllerFile) || filemtime($controllerFile) < $expireTime) {
-    $controller = @file_get_contents($controllerUrl);
+    $controller = @file_get_contents($controllerUrl.'?ts='.time());
     if ($controller) {
         file_put_contents($controllerFile, $controller);
     } else {
@@ -76,6 +77,7 @@ if ($isRequest) {
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/regular.min.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/brands.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/solid.min.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/styles/solarized-light.min.css">
     <link rel="shortcut icon" href="/favicon.ico">
     <style>
@@ -107,6 +109,10 @@ if ($isRequest) {
             color: #888;
             line-height: 36px;
             font-weight: bold;
+        }
+        .source-panel {
+            background-color: #fdf6e3;
+            padding: 0 13px 0 13px;
         }
     </style>
 </head>
@@ -145,9 +151,14 @@ if ($isRequest) {
                 <div class="bs-component">
                     <div class="card border-primary card-shadow mb-3">
                         <div class="card-header"><i class="far fa-file-code"></i> Header</div>
-                        <pre class="mb-0"><code id="script" lass="php"><?=htmlentities($controller, ENT_COMPAT)?></code></pre>
+                        <div class="source-panel">
+                            <pre class="mb-0"><code id="script" lass="php"><?=htmlentities($controller, ENT_COMPAT)?></code></pre>
+                        </div>
                         <div class="card-footer text-muted">
-                            2 days ago
+                            <a href="<?=$editUrl?>" target="_blank" class="btn btn-info btn-sm">
+                                <i class="fas fa-pencil-alt"></i>
+                                Edit
+                            </a>
                         </div>
                     </div>
                     <div class="card card-shadow mb-3">
