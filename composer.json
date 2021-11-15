@@ -3,7 +3,10 @@
   "require": {
     "php": "^8.0",
     "ext-json": "*",
-    "laravel/framework": "8.70.2"
+    "laravel/framework": "8.70.2",
+    "knplabs/github-api": "^3.0",
+    "symfony/http-client": "^5.3",
+    "nyholm/psr7": "^1.4"
   },
   "require-dev": {
     "heroku/heroku-buildpack-php": "*",

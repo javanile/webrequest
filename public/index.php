@@ -1,4 +1,9 @@
 <?php
+/**
+ *
+ */
+
+require_once __DIR__.'/../vendor/autoload.php';
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -22,10 +27,6 @@ $hasError = false;
 $variants = [];
 #var_dump(filemtime($controllerFile), $expireTime, filemtime($controllerFile) - $expireTime);
 
-if (!file_exists($insightsFile) || filemtime($insightsFile) < $expireTime) {
-    'https://api.github.com/repos/'.$vendor.'/'.$package.'/git/trees/main';
-}
-
 if (!file_exists($controllerFile) || filemtime($controllerFile) < $expireTime) {
     $controller = @file_get_contents($controllerUrl);
     if ($controller) {
@@ -38,6 +39,17 @@ if (!file_exists($controllerFile) || filemtime($controllerFile) < $expireTime) {
     $controller = file_get_contents($controllerFile);
 }
 
+if (!file_exists($insightsFile) || filemtime($insightsFile) < $expireTime) {
+    $client = new Github\Client();
+    $info = $client->api('repo')->show($vendor, $package);
+    $insights = [
+        'description' => $info['description'],
+    ];
+    file_put_contents($insightsFile, json_encode($insights));
+} else {
+    $insights = json_decode(file_get_contents($insightsFile), true);
+}
+
 if ($isRequest) {
     // Update stats
     $currentMinute = intdiv(time(), 60);
@@ -46,8 +58,6 @@ if ($isRequest) {
     $stats['samples'][0]++;
     $stats['frequency'] = array_sum($stats['samples']);
     $stats['minute'] = $currentMinute;
-
-    var_dump($stats);
     file_put_contents($statsFile, json_encode($stats));
 
     // Run the controller
@@ -78,6 +88,9 @@ if ($isRequest) {
         }
         .navbar-dark .navbar-nav .nav-link, .text-white-70 {
             color: rgba(255, 255, 255, 0.7) !important;
+        }
+        .table-sm th, .table-sm td {
+            padding: 0;
         }
         .background-text {
             text-align: center;
@@ -142,8 +155,17 @@ if ($isRequest) {
                     <div class="card card-shadow mb-3">
                         <div class="card-header">Insights</div>
                         <div class="card-body">
-                            <h4 class="card-title">Primary card title</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text"><?=$insights['description']?></p>
+                            <table class="table table-borderless table-sm mb-0">
+                                <tr>
+                                    <th>Hourly Requests:</th>
+                                    <td><?=intval($stats['frequency'])?></td>
+                                </tr>
+                                <tr>
+                                    <th>Suitable Variants:</th>
+                                    <td><?=intval($stats['frequency'])?></td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                     <div class="card card-shadow mb-3">
@@ -213,14 +235,14 @@ if ($isRequest) {
                     <div class="card card-shadow mb-3">
                         <div class="card-header">Debug</div>
                         <div class="card-body">
-                            <table class="table table-borderless table-sm">
+                            <table class="table table-borderless table-sm mb-0">
                                 <!--tr>
                                     <th>Controller URL:</th>
                                     <td><?=$controllerUrl?>
                                 </tr-->
                                 <tr>
                                     <th>From cache:</th>
-                                    <td><?=$fromCache?'Yes':'No'?>
+                                    <td><?=$fromCache?'Yes':'No'?></td>
                                 </tr>
                             </table>
                         </div>
