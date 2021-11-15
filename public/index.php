@@ -19,6 +19,7 @@ $platform = 'github';
 $isRequest = $_SERVER['REQUEST_METHOD'] == 'POST';
 $controllerUrl = 'https://raw.githubusercontent.com/'.$vendor.'/'.$package.'/main/webrequest'.($variant ? '-'.$variant : '').'.php';
 $editUrl = 'https://github.com/'.$vendor.'/'.$package.'/edit/main/webrequest'.($variant ? '-'.$variant : '').'.php';
+$forkUrl = 'https://github.com/'.$vendor.'/'.$package.'/fork';
 $controllerHash = md5($controllerUrl);
 $controllerFile = sys_get_temp_dir().'/'.$controllerHash.'.php';
 $insightsFile = sys_get_temp_dir().'/'.md5($_SERVER['REQUEST_URI']).'.php';
@@ -298,7 +299,7 @@ if ($isRequest) {
     </footer>
 </div>
 
-<a href="https://github.com/you" target="_blank" class="d-none d-xl-block"><img loading="lazy" width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_green_007200.png?resize=149%2C149" style="position:absolute;top:0;right:0;border:0;" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+<a href="<?=$forkUrl?>" target="_blank" class="d-none d-xl-block"><img loading="lazy" width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_green_007200.png?resize=149%2C149" style="position:absolute;top:0;right:0;border:0;" alt="Fork me on GitHub" data-recalc-dims="1"></a>
 
 <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/highlight.min.js"></script>
 <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/languages/php.min.js"></script>
