@@ -71,11 +71,11 @@ if ($isRequest) {
     <meta charset="utf-8">
     <title>webrequest.cc</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/minty/bootstrap.min.css" integrity="sha384-H4X+4tKc7b8s4GoMrylmy2ssQYpDHoqzPa9aKXbDwPoPUA3Ra8PA5dGzijN+ePnH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/regular.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/brands.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/styles/solarized-light.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/minty/bootstrap.min.css" integrity="sha384-H4X+4tKc7b8s4GoMrylmy2ssQYpDHoqzPa9aKXbDwPoPUA3Ra8PA5dGzijN+ePnH" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/brands.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/styles/solarized-light.min.css">
     <link rel="shortcut icon" href="/favicon.ico">
     <style>
         .navbar-shadow {
@@ -183,11 +183,11 @@ if ($isRequest) {
                             <table class="table table-borderless table-sm mb-0">
                                 <tr>
                                     <th>Hourly Requests:</th>
-                                    <td><?=intval($stats['frequency'])?></td>
+                                    <td><?=intval(@$stats['frequency'])?></td>
                                 </tr>
                                 <tr>
                                     <th>Suitable Variants:</th>
-                                    <td><?=intval($stats['frequency'])?></td>
+                                    <td><?=intval(@$stats['frequency'])?></td>
                                 </tr>
                             </table>
                         </div>
@@ -251,9 +251,9 @@ if ($isRequest) {
                     <div class="card card-shadow mb-3">
                         <div class="card-header">Other & Popular</div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><a href="http://webrequest.cc/php-nocode/games" target="_blank">php-nocode/ifttt</a></li>
-                            <li class="list-group-item"><a href="http://webrequest.cc/php-nocode/games" target="_blank">php-nocode/games</a></li>
-                            <li class="list-group-item"><a href="http://webrequest.cc/php-nocode/games" target="_blank">php-nocode/tools</a></li>
+                            <li class="list-group-item"><a href="/php-nocode/ifttt" target="_blank">php-nocode/ifttt</a></li>
+                            <li class="list-group-item"><a href="/php-nocode/games" target="_blank">php-nocode/games</a></li>
+                            <li class="list-group-item"><a href="/php-nocode/tools" target="_blank">php-nocode/tools</a></li>
                         </ul>
                     </div>
                     <div class="card card-shadow mb-3">
@@ -288,8 +288,8 @@ if ($isRequest) {
 
 <a href="https://github.com/you" target="_blank"><img loading="lazy" width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_green_007200.png?resize=149%2C149" style="position:absolute;top:0;right:0;border:0;" alt="Fork me on GitHub" data-recalc-dims="1"></a>
 
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/highlight.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/languages/php.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/highlight.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/languages/php.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
 <script>hljs.highlightAll();/*hljs.initLineNumbersOnLoad();*/</script>
 <script>
