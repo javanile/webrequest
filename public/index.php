@@ -6,15 +6,25 @@ ini_set('display_errors', 1);
 $uri = explode('/', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 $vendor = $uri[1] ?: 'javanile';
 $package = $uri[2] ?? 'webrequest';
+$variant = isset($uri[3]) && $uri[3] ? 'webrequest-'.$uri[3].'.php' : 'webrequest.php';
 $platform = 'github';
 $repository = $vendor.'/'.$package;
 $isRequest = $_SERVER['REQUEST_METHOD'] == 'POST';
-$controllerFile = sys_get_temp_dir().'/'.md5($_SERVER['REQUEST_URI']).'.php';
-$controllerUrl = 'https://raw.githubusercontent.com/'.$vendor.'/'.$package.'/main/webrequest.php';
+$controllerUrl = 'https://raw.githubusercontent.com/'.$vendor.'/'.$package.'/main/'.$variant;
+$controllerHash = md5($controllerUrl);
+$controllerFile = sys_get_temp_dir().'/'.$controllerHash.'.php';
+$insightsFile = sys_get_temp_dir().'/'.md5($_SERVER['REQUEST_URI']).'.php';
+$statsFile = sys_get_temp_dir().'/'.$controllerHash.'-stats.php';
+$stats = json_decode(@file_get_contents($statsFile), true);
 $expireTime = time() - 10;
 $fromCache = false;
 $hasError = false;
+$variants = [];
 #var_dump(filemtime($controllerFile), $expireTime, filemtime($controllerFile) - $expireTime);
+
+if (!file_exists($insightsFile) || filemtime($insightsFile) < $expireTime) {
+    'https://api.github.com/repos/'.$vendor.'/'.$package.'/git/trees/main';
+}
 
 if (!file_exists($controllerFile) || filemtime($controllerFile) < $expireTime) {
     $controller = @file_get_contents($controllerUrl);
@@ -29,6 +39,18 @@ if (!file_exists($controllerFile) || filemtime($controllerFile) < $expireTime) {
 }
 
 if ($isRequest) {
+    // Update stats
+    $currentMinute = intdiv(time(), 60);
+    $delta = $stats['minute'] > 0 ? $currentMinute - $stats['minute'] : 0;
+    $stats['samples'] = array_merge(array_fill(0, $delta, 0), array_slice($stats['samples'], 0, 60 - $delta));
+    $stats['samples'][0]++;
+    $stats['frequency'] = array_sum($stats['samples']);
+    $stats['minute'] = $currentMinute;
+
+    var_dump($stats);
+    file_put_contents($statsFile, json_encode($stats));
+
+    // Run the controller
     return require_once $controllerFile;
 }
 ?>
