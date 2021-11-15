@@ -152,17 +152,18 @@ if ($isRequest) {
                     <div class="card card-shadow mb-3">
                         <div class="card-header">Usage & Examples</div>
                         <div class="card-body">
-                            <p class="card-text">Us</p>
+                            <p class="card-text">Copy and paste the</p>
                             <form class="needs-validation" novalidate>
                                 <div class="form-row">
                                     <div class="col-md-10">
                                         <div class="input-group">
-                                            <input type="text" class="form-control form-control-lg" readonly value="<?=$publicUrl?>">
+                                            <input type="text" class="form-control" readonly value="<?=$publicUrl?>">
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="input-group">
-                                            <button type="button" class="btn btn-primary btn-lg w-100">
+                                            <button type="button" class="btn btn-primary w-100">
+                                                <i class="far fa-clipboard"></i>
                                                 Copy
                                             </button>
                                         </div>
