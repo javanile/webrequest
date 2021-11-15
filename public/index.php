@@ -15,6 +15,7 @@ $variant = $uri[3] ?? '';
 $variantPath = $vendor.'/'.$package.($variant ? '/'.$variant : '');
 $publicUrl = 'http://'.$_SERVER['HTTP_HOST'].'/'.$variantPath.'?';
 $repository = $vendor.'/'.$package;
+$platform = 'github';
 $isRequest = $_SERVER['REQUEST_METHOD'] == 'POST';
 $controllerUrl = 'https://raw.githubusercontent.com/'.$vendor.'/'.$package.'/main/webrequest'.($variant ? '-'.$variant : '').'.php';
 $controllerHash = md5($controllerUrl);
@@ -55,7 +56,7 @@ if ($isRequest) {
     // Update stats
     $currentMinute = intdiv(time(), 60);
     $delta = $stats['minute'] > 0 ? $currentMinute - @$stats['minute'] : 0;
-    $stats['samples'] = array_merge(array_fill(0, $delta, 0), array_slice(@$stats['samples'], 0, 60 - $delta));
+    $stats['samples'] = array_merge(array_fill(0, $delta, 0) ?: [], array_slice(@$stats['samples'], 0, 60 - $delta));
     $stats['samples'][0]++;
     $stats['frequency'] = array_sum($stats['samples']);
     $stats['minute'] = $currentMinute;
