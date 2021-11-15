@@ -2,7 +2,7 @@
 
 XData is the best way to extract data from any kind of Web Service and import it into Google Spreadsheet
 
-- [Open in webrequest.cc](http://webrequest.javanile.org/php-nocode/tools/info?_bypass_landing_page=1)
+- [Open in webrequest.cc](http://webrequest.javanile.org/php-nocode/tools/info?_bypass_landing_page=yes)
 
 ## Get Started
 
