@@ -11,11 +11,12 @@ ini_set('display_errors', 1);
 $uri = explode('/', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 $vendor = $uri[1] ?: 'javanile';
 $package = $uri[2] ?? 'webrequest';
-$variant = isset($uri[3]) && $uri[3] ? 'webrequest-'.$uri[3].'.php' : 'webrequest.php';
-$platform = 'github';
+$variant = $uri[3] ?? '';
+$variantPath = $vendor.'/'.$package.($variant ? '/'.$variant : '');
+$publicUrl = 'http://'.$_SERVER['HTTP_HOST'].'/'.$variantPath.'?';
 $repository = $vendor.'/'.$package;
 $isRequest = $_SERVER['REQUEST_METHOD'] == 'POST';
-$controllerUrl = 'https://raw.githubusercontent.com/'.$vendor.'/'.$package.'/main/'.$variant;
+$controllerUrl = 'https://raw.githubusercontent.com/'.$vendor.'/'.$package.'/main/webrequest'.($variant ? '-'.$variant : '').'.php';
 $controllerHash = md5($controllerUrl);
 $controllerFile = sys_get_temp_dir().'/'.$controllerHash.'.php';
 $insightsFile = sys_get_temp_dir().'/'.md5($_SERVER['REQUEST_URI']).'.php';
@@ -146,6 +147,28 @@ if ($isRequest) {
                         <pre class="mb-0"><code id="script" lass="php"><?=htmlentities($controller, ENT_COMPAT)?></code></pre>
                         <div class="card-footer text-muted">
                             2 days ago
+                        </div>
+                    </div>
+                    <div class="card card-shadow mb-3">
+                        <div class="card-header">Usage & Examples</div>
+                        <div class="card-body">
+                            <p class="card-text">Us</p>
+                            <form class="needs-validation" novalidate>
+                                <div class="form-row">
+                                    <div class="col-md-10">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control form-control-lg" readonly value="<?=$publicUrl?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="input-group">
+                                            <button type="button" class="btn btn-primary btn-lg w-100">
+                                                Copy
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
