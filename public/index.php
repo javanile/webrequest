@@ -147,7 +147,7 @@ if ($isRequest) {
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-8 pr-0">
+            <div class="col-lg-8 pr-lg-0">
                 <div class="bs-component">
                     <div class="card border-primary card-shadow mb-3">
                         <div class="card-header"><i class="far fa-file-code"></i> Header</div>
@@ -169,7 +169,7 @@ if ($isRequest) {
                                 <div class="form-row">
                                     <div class="col-md-10">
                                         <div class="input-group">
-                                            <input type="text" class="form-control" readonly value="<?=$publicUrl?>">
+                                            <input id="webrequest-url" type="text" class="form-control font-weight-bold" readonly value="<?=$publicUrl?>">
                                         </div>
                                     </div>
                                     <div class="col-md-2">
@@ -298,13 +298,17 @@ if ($isRequest) {
     </footer>
 </div>
 
-<a href="https://github.com/you" target="_blank"><img loading="lazy" width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_green_007200.png?resize=149%2C149" style="position:absolute;top:0;right:0;border:0;" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+<a href="https://github.com/you" target="_blank" class="d-none d-xl-block"><img loading="lazy" width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_green_007200.png?resize=149%2C149" style="position:absolute;top:0;right:0;border:0;" alt="Fork me on GitHub" data-recalc-dims="1"></a>
 
 <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/highlight.min.js"></script>
 <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/languages/php.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
 <script>hljs.highlightAll();/*hljs.initLineNumbersOnLoad();*/</script>
 <script>
+    document.getElementById('webrequest-url').addEventListener('click', event => {
+        event.preventDefault();
+        document.getElementById('webrequest-url').select()
+    });
     document.getElementById('webrequest-submit').addEventListener('click', event => {
         event.preventDefault();
         let url = location.origin + location.pathname;
