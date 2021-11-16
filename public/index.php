@@ -35,10 +35,15 @@ $variants = [];
 
 if (!file_exists($controllerFile) || filemtime($controllerFile) < $expireTime) {
     $client = new Github\Client();
-    $controller = $client->api('repo')->contents()->download($vendor, $package, $variantFile, 'main');
-    if ($controller) {
-        file_put_contents($controllerFile, $controller);
-    } else {
+    try {
+        $controller = $client->api('repo')->contents()->download($vendor, $package, $variantFile, 'main');
+        if ($controller) {
+            file_put_contents($controllerFile, $controller);
+        } else {
+            $hasError = true;
+        }
+    } catch (Throwable $error) {
+        $controller = '';
         $hasError = true;
     }
 } else {

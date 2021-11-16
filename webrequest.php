@@ -7,7 +7,7 @@
    .'=  *=|     _.='
   /   _.  |    ;         Welcome to "webrequest.cc"
  ;-.-'|    \   |
-/   | \    _\  _\        << Few lines of code for you,
+/   | \    _\  _\        << Few lines of code from you,
 \__/'._;.  ==' ==\            a giant leap for your project >>
          \    \   |
          /    /   /      Run small snippets without hosting
