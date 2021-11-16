@@ -118,6 +118,9 @@ if ($isRequest) {
             background-color: #fdf6e3;
             padding: 0 13px 0 13px;
         }
+        .hljs-comment, h1 {
+            color: #273C2C;
+        }
     </style>
 </head>
 <body>
@@ -146,6 +149,9 @@ if ($isRequest) {
         <div class="row">
             <div class="col-lg-12">
                 <div class="page-header">
+                    <a class="btn btn-lg btn-primary float-right" href="https://github.com/javanile/webrequest-template/generate" target="_blank">
+                        <i class="fas fa-puzzle-piece"></i> Create Project
+                    </a>
                     <h1 class="mb-3"><i class="fab fa-<?=$platform?>"></i> <?=$vendor?> / <?=$package?></h1>
                 </div>
             </div>

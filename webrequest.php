@@ -15,4 +15,15 @@
   jgs    \   `\  \       with No-code mindset
           `-._/.*/
 
+/* =============== *\
+ *   GET STARTED   *
+ * =============== *
+
+
+
+
+
+\* ============= */
+
+
 echo "Hello, World!";
