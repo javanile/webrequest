@@ -37,13 +37,12 @@ if (!file_exists($controllerFile) || filemtime($controllerFile) < $expireTime) {
     $client = new Github\Client();
     try {
         $controller = $client->api('repo')->contents()->download($vendor, $package, $variantFile, 'main');
-        if ($controller) {
-            file_put_contents($controllerFile, $controller);
-        } else {
-            $hasError = true;
-        }
     } catch (Throwable $error) {
-        $controller = '';
+        $controller = file_get_contents($controllerUrl);
+    }
+    if ($controller) {
+        file_put_contents($controllerFile, $controller);
+    } else {
         $hasError = true;
     }
 } else {
