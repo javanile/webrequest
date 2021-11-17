@@ -20,6 +20,7 @@ $platform = 'github';
 $bypassLandingPage = isset($_GET['_bypass_landing_page']) && $_GET['_bypass_landing_page'] == 'yes';
 $isRequest = ($_SERVER['REQUEST_METHOD'] == 'POST') || $bypassLandingPage;
 $controllerUrl = 'https://raw.githubusercontent.com/'.$vendor.'/'.$package.'/main/webrequest'.($variant ? '-'.$variant : '').'.php';
+$controllerErrorUrl = 'https://raw.githubusercontent.com/javanile/webrequest/main/webrequest-error.php';
 $editUrl = 'https://github.com/'.$vendor.'/'.$package.'/edit/main/webrequest'.($variant ? '-'.$variant : '').'.php';
 $forkUrl = 'https://github.com/'.$vendor.'/'.$package.'/fork';
 $controllerHash = md5($controllerUrl);
@@ -43,6 +44,7 @@ if (!file_exists($controllerFile) || filemtime($controllerFile) < $expireTime) {
     if ($controller) {
         file_put_contents($controllerFile, $controller);
     } else {
+        $controller = @file_get_contents($controllerErrorUrl);
         $hasError = true;
     }
 } else {
