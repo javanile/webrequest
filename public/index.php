@@ -230,10 +230,10 @@ if ($isRequest) {
                                         <div class="background-text">
                                             =
                                         </div>
-                                        <div class="col-sm-6">
+                                        <div class="col-6">
                                             <input type="text" class="form-control" placeholder="value1" value="value1">
                                         </div>
-                                        <div class="col-sm-6">
+                                        <div class="col-6">
                                             <input type="text" class="form-control" placeholder="value1" value="">
                                         </div>
                                     </div>
@@ -241,10 +241,10 @@ if ($isRequest) {
                                         <div class="background-text">
                                             =
                                         </div>
-                                        <div class="col-sm-6">
+                                        <div class="col-6">
                                             <input type="text" class="form-control" placeholder="value2" value="value2">
                                         </div>
-                                        <div class="col-sm-6">
+                                        <div class="col-6">
                                             <input type="text" class="form-control" placeholder="value2" value="">
                                         </div>
                                     </div>
@@ -253,10 +253,10 @@ if ($isRequest) {
                                     <div class="background-text">
                                         =
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-6">
                                         <input type="text" class="form-control" placeholder="value3" value="value3">
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-6">
                                         <input type="text" class="form-control" placeholder="value3">
                                     </div>
                                 </div>
