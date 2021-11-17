@@ -38,7 +38,7 @@ if (!file_exists($controllerFile) || filemtime($controllerFile) < $expireTime) {
     try {
         $controller = $client->api('repo')->contents()->download($vendor, $package, $variantFile, 'main');
     } catch (Throwable $error) {
-        $controller = file_get_contents($controllerUrl);
+        $controller = @file_get_contents($controllerUrl);
     }
     if ($controller) {
         file_put_contents($controllerFile, $controller);
@@ -301,13 +301,14 @@ if ($isRequest) {
             </div>
         </div>
     </div>
-    <footer id="footer">
+    <footer id="footer" class="small mb-4">
         <div class="row">
             <div class="col-lg-12">
-                <p>Made by <a href="https://www.linkedin.com/in/yafb/" target="_blank">Francesco Bianco</a>.</p>
-                <p>Code released under the <a href="https://github.com/javanile/webrequest/blob/main/LICENSE" target="_blank">MIT License</a>. Hosted by <a href="https://heroku.com/" target="_blank">Heroku</a>.</p>
-                <p>Based on <a href="https://bootswatch.com/" rel="nofollow" target="_blank">Bootswatch</a> &amp; <a href="https://getbootstrap.com/" rel="nofollow" target="_blank">Bootstrap</a>. Icons from <a href="https://fontawesome.com/" rel="nofollow" target="_blank">Font Awesome</a>. Web fonts from <a href="https://fonts.google.com/" rel="nofollow" target="_blank">Google</a>.</p>
-                <p>Thanks to <a href="https://en.wikipedia.org/wiki/Joan_Stark" rel="nofollow" target="_blank">Spunk</a> from <a href="http://www.ascii-art.com" rel="nofollow" target="_blank">http://www.ascii-art.com</a>
+                <hr>
+                <p class="mb-1">Made by <a href="https://www.linkedin.com/in/yafb/" target="_blank">Francesco Bianco</a>.</p>
+                <p class="mb-1">Code released under the <a href="https://github.com/javanile/webrequest/blob/main/LICENSE" target="_blank">MIT License</a>. Hosted by <a href="https://heroku.com/" target="_blank">Heroku</a>.</p>
+                <p class="mb-1">Based on <a href="https://bootswatch.com/" rel="nofollow" target="_blank">Bootswatch</a> &amp; <a href="https://getbootstrap.com/" rel="nofollow" target="_blank">Bootstrap</a>. Icons from <a href="https://fontawesome.com/" rel="nofollow" target="_blank">Font Awesome</a>. Web fonts from <a href="https://fonts.google.com/" rel="nofollow" target="_blank">Google</a>.</p>
+                <p class="mb-1">Thanks to <a href="https://en.wikipedia.org/wiki/Joan_Stark" rel="nofollow" target="_blank">Spunk</a> from <a href="http://www.ascii-art.com" rel="nofollow" target="_blank">http://www.ascii-art.com</a>
             </div>
         </div>
     </footer>
