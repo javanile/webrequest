@@ -15,15 +15,35 @@
   jgs    \   `\  \       with No-code mindset
           `-._/.*/
 
-/* =============== *\
- *   GET STARTED   *
- * =============== *
+/*\
+
+## Get Started
+
+Webrequest is a free service that run PHP code without any kind of web hosting.
+
+Follow this easy steps:
+
+1. Create a file called `webrequest.php` into root of a GitHub repository
+
+    << TIP: Read the official GitHub documantation about how to create a file 
+       https://docs.github.com/en/repositories/working-with-files/managing-files/creating-new-files >>
+
+2. Visit the following page than use the "Try it out" box to see it in action, you can test your script live
+
+    << https://webrequest.cc/{my-github-username}/{my-github-repository} >>
+
+3. Enjoy it! Start to use CURL, IFTTT or connect it to any kind of No-code tools.
 
 
+## What can I do?
 
+You can use Webrequest.cc as layer of interconnaction between systems, as examples:
 
+- Trasform XML inputs into JSON, than forward the request to another API
+- Remove of reduce large inputs into smaller one
+- Fork a signle No-code trigger to start multiple workflows
 
-\* ============= */
+\*/
 
-
+// This script just say Hello!
 echo "Hello, World!";
