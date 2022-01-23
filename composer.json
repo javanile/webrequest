@@ -6,10 +6,16 @@
     "laravel/framework": "8.70.2",
     "knplabs/github-api": "^3.0",
     "symfony/http-client": "^5.3",
-    "nyholm/psr7": "^1.4"
+    "nyholm/psr7": "^1.4",
+    "guzzlehttp/guzzle": "^7.4"
   },
   "require-dev": {
     "heroku/heroku-buildpack-php": "*",
     "pestphp/pest": "^1.0"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
   }
 }
