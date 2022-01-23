@@ -14,5 +14,8 @@ require:
 ## Tests
 ## =====
 
+test-guzzle:
+	@docker-compose run --rm php ./vendor/bin/pest tests/GuzzleTest.php
+
 test-laravel:
-	./vendor/bin/pest tests/LaravelTest.php
+	@docker-compose run --rm php ./vendor/bin/pest tests/LaravelTest.php
