@@ -164,6 +164,18 @@ if ($isRequest) {
             overflow-y: scroll;
             min-height: 120px;
         }
+        .text-output {
+            font-weight: bold;
+        }
+        .image-output {
+            text-align: center;
+            background: #555;
+            overflow-y: scroll;
+            min-height: 120px;
+        }
+        .image-output img {
+            box-shadow: 0 1px 1px rgb(0 0 0 / 8%), 0 2px 2px rgb(0 0 0 / 12%), 0 4px 4px rgb(0 0 0 / 16%), 0 8px 8px rgb(0 0 0 / 20%);
+        }
     </style>
 </head>
 <body>
@@ -397,7 +409,7 @@ if ($isRequest) {
                         document.getElementById('webrequest-result-output').innerHTML = '<div class="form-control html-output" id="webrequest-result"></div>';
                         document.getElementById('webrequest-result').innerHTML = text;
                     } else {
-                        document.getElementById('webrequest-result-output').innerHTML = '<textarea class="form-control" id="webrequest-result" rows="4" readonly></textarea>';
+                        document.getElementById('webrequest-result-output').innerHTML = '<textarea class="form-control text-output" id="webrequest-result" rows="4" readonly></textarea>';
                         document.getElementById('webrequest-result').value = text;
                     }
                 });
