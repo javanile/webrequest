@@ -155,6 +155,9 @@ if ($isRequest) {
             background-color: #fdf6e3;
             padding: 0 13px 0 13px;
         }
+        #script {
+            color: #fdf6e3 !important;
+        }
         .hljs-comment, h1 {
             color: #273C2C;
         }
