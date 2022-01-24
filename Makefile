@@ -4,8 +4,11 @@ start:
 	@docker-compose up -d
 	@echo "Visit: <http://localhost:10000>"
 
+build:
+	@docker-compose build php
+
 update:
-	@composer update --ignore-platform-reqs
+	@docker-compose run --rm php composer update
 
 require:
 	@docker-compose run --rm php composer require --prefer-dist guzzlehttp/guzzle
