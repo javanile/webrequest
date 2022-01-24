@@ -114,6 +114,10 @@ if ($isRequest) {
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/brands.min.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/solid.min.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/styles/solarized-light.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/shepherd.js@8.3.1/dist/js/shepherd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@8.3.1/dist/css/shepherd.css"/>
+
     <link rel="shortcut icon" href="/favicon.ico">
     <style>
         body {
@@ -159,7 +163,10 @@ if ($isRequest) {
             padding: 0 13px 0 13px;
         }
         #script {
-            color: #fdf6e3 !important;
+            color: #fdf6e3;
+        }
+        #script.hljs {
+            color: #657b83;
         }
         .hljs-comment, h1 {
             color: #273C2C;
@@ -181,6 +188,9 @@ if ($isRequest) {
         }
         .image-output img {
             box-shadow: 0 1px 1px rgb(0 0 0 / 8%), 0 2px 2px rgb(0 0 0 / 12%), 0 4px 4px rgb(0 0 0 / 16%), 0 8px 8px rgb(0 0 0 / 20%);
+        }
+        #footer {
+            color: #888888;
         }
     </style>
 </head>
@@ -221,7 +231,7 @@ if ($isRequest) {
             <div class="col-lg-8 pr-lg-0">
                 <div class="bs-component">
                     <div class="card border-primary card-shadow mb-3">
-                        <div class="card-header"><i class="far fa-file-code"></i> <?=$variantFile?></div>
+                        <div class="card-header"><i class="fas fa-scroll"></i> <?=$variantFile?></div>
                         <div class="source-panel">
                             <pre class="mb-0"><code id="script" lass="php"><?=htmlentities($controller, ENT_COMPAT)?></code></pre>
                         </div>
@@ -275,7 +285,7 @@ if ($isRequest) {
                             </table>
                         </div>
                     </div>
-                    <div class="card card-shadow mb-3">
+                    <div class="card card-shadow mb-3 tour-try-it-out">
                         <div class="card-header">Try it out</div>
                         <div class="card-body">
                             <p class="card-text">This action will make a web request, then it will show you the result.</p>
@@ -324,10 +334,12 @@ if ($isRequest) {
                                     <label for="webrequest-result">Result</label>
                                     <div id="webrequest-result-output"></div>
                                 </div>
-                                <button id="webrequest-submit" type="button" class="btn btn-primary w-100">
-                                    <span id="webrequest-submit-spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none"></span>
-                                    <span id="webrequest-submit-label">Submit</span>
-                                </button>
+                                <div class="tour-try-it-out-submit">
+                                    <button id="webrequest-submit" type="button" class="btn btn-primary w-100">
+                                        <span id="webrequest-submit-spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none"></span>
+                                        <span id="webrequest-submit-label">Submit</span>
+                                    </button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -422,6 +434,50 @@ if ($isRequest) {
             }
         });
     }, false);
+
+
+    const tour = new Shepherd.Tour({
+        useModalOverlay: true,
+        defaultStepOptions: {
+            classes: 'shadow-md bg-purple-dark',
+            scrollTo: true
+        }
+    });
+
+    tour.addStep({
+        id: 'example-step',
+        text: 'This step is attached to the bottom of the <code>.example-css-selector</code> element.',
+        attachTo: {
+            element: '.tour-try-it-out',
+            on: 'bottom'
+        },
+        classes: 'example-step-extra-class',
+        buttons: [
+            {
+                text: 'Next',
+                action: tour.next
+            }
+        ]
+    });
+
+    tour.addStep({
+        id: 'example-step-2',
+        text: 'This step is attached to the bottom of the <code>.example-css-selector</code> element.',
+        attachTo: {
+            element: '.tour-try-it-out-submit',
+            on: 'bottom'
+        },
+        classes: 'example-step-extra-class',
+        buttons: [
+            {
+                text: 'Next',
+                action: tour.next
+            }
+        ]
+    });
+
+    tour.start();
+
 </script>
 </body>
 </html>
