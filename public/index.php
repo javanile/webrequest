@@ -118,6 +118,9 @@ if ($isRequest) {
     <style>
         body {
             color: #555;
+            opacity: 0;
+            transition: opacity 1s;
+            -webkit-transition: opacity 1s; /* Safari */
         }
         .navbar-shadow {
             box-shadow: 0 1px 2px 0 #333, 0 2px 6px 2px #CCC;
@@ -181,7 +184,7 @@ if ($isRequest) {
         }
     </style>
 </head>
-<body>
+<body onload="document.body.style.opacity='1'">
 <div class="navbar navbar-expand-lg navbar-dark navbar-shadow bg-primary mb-3 navbar-shadow">
     <div class="container">
         <a href="../" class="navbar-brand font-weight-bold">
