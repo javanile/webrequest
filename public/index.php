@@ -75,12 +75,15 @@ if (!file_exists($controllerFile) || filemtime($controllerFile) < $expireTime) {
 }
 
 if (!file_exists($insightsFile) || filemtime($insightsFile) < $expireTime) {
-    $client = new Github\Client();
-    $info = $client->api('repo')->show($vendor, $package);
-    $insights = [
-        'description' => $info['description'],
-    ];
-    file_put_contents($insightsFile, json_encode($insights));
+    try {
+        $client = new Github\Client();
+        $info = $client->api('repo')->show($vendor, $package);
+        $insights = [
+            'description' => $info['description'],
+        ];
+    } catch (Github\Exception\RuntimeException $exception) {
+        //echo "RATE LIMIT";
+    }
 } else {
     $insights = json_decode(file_get_contents($insightsFile), true);
 }
@@ -113,11 +116,17 @@ if ($isRequest) {
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/styles/solarized-light.min.css">
     <link rel="shortcut icon" href="/favicon.ico">
     <style>
+        body {
+            color: #555;
+        }
         .navbar-shadow {
             box-shadow: 0 1px 2px 0 #333, 0 2px 6px 2px #CCC;
         }
         .card-shadow {
             box-shadow: 0 0px 2px 0 #333;
+        }
+        .card-header {
+            padding: 0.75rem 1.25rem 0.6rem;
         }
         .card-header, .card-footer {
             background-color: #FFEDDF !important;
@@ -148,6 +157,12 @@ if ($isRequest) {
         }
         .hljs-comment, h1 {
             color: #273C2C;
+        }
+        .html-output {
+            font-size: 70%;
+            background: #00FFFF;
+            overflow-y: scroll;
+            min-height: 120px;
         }
     </style>
 </head>
@@ -188,7 +203,7 @@ if ($isRequest) {
             <div class="col-lg-8 pr-lg-0">
                 <div class="bs-component">
                     <div class="card border-primary card-shadow mb-3">
-                        <div class="card-header"><i class="far fa-file-code"></i> Header</div>
+                        <div class="card-header"><i class="far fa-file-code"></i> <?=$variantFile?></div>
                         <div class="source-panel">
                             <pre class="mb-0"><code id="script" lass="php"><?=htmlentities($controller, ENT_COMPAT)?></code></pre>
                         </div>
@@ -285,11 +300,11 @@ if ($isRequest) {
                                 </div>
                                 <div class="form-group">
                                     <label for="webrequest-body">Body</label>
-                                    <textarea class="form-control" id="webrequest-body" rows="3"></textarea>
+                                    <textarea class="form-control" id="webrequest-body" rows="4"></textarea>
                                 </div>
                                 <div id="webrequest-result-panel" class="form-group" style="display: none">
                                     <label for="webrequest-result">Result</label>
-                                    <textarea class="form-control" id="webrequest-result" rows="3" readonly></textarea>
+                                    <div id="webrequest-result-output"></div>
                                 </div>
                                 <button id="webrequest-submit" type="button" class="btn btn-primary w-100">
                                     <span id="webrequest-submit-spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none"></span>
@@ -345,6 +360,9 @@ if ($isRequest) {
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
 <script>hljs.highlightAll();/*hljs.initLineNumbersOnLoad();*/</script>
 <script>
+    function isHtml(input) {
+        return /<[a-z]+\d?(\s+[\w-]+=("[^"]*"|'[^']*'))*\s*\/?>|&#?\w+;/i.test(input);
+    }
     document.getElementById('webrequest-url').addEventListener('click', event => {
         event.preventDefault();
         document.getElementById('webrequest-url').select()
@@ -352,19 +370,38 @@ if ($isRequest) {
     document.getElementById('webrequest-submit').addEventListener('click', event => {
         event.preventDefault();
         let url = location.origin + location.pathname;
-        document.getElementById('webrequest-result').value = 'Loading...';
+        /*document.getElementById('webrequest-result').value = 'Loading...';*/
         document.getElementById('webrequest-submit-label').style.display = 'none';
         document.getElementById('webrequest-submit-spinner').style.display = 'inline-block';
         fetch(url, {
             method: 'POST',
             mode: 'no-cors',
         }).then(response => {
-            return response.text().then(result => {
-                document.getElementById('webrequest-result').value = result;
-                document.getElementById('webrequest-result-panel').style.display = 'block';
-                document.getElementById('webrequest-submit-label').style.display = 'inline';
-                document.getElementById('webrequest-submit-spinner').style.display = 'none';
-            });
+            document.getElementById('webrequest-result-panel').style.display = 'block';
+            document.getElementById('webrequest-submit-label').style.display = 'inline';
+            document.getElementById('webrequest-submit-spinner').style.display = 'none';
+            if (response.headers.get("content-type").startsWith('image/')) {
+                return response.blob().then(blob => {
+                    let reader = new FileReader();
+                    reader.onload = () => {
+                        document.getElementById('webrequest-result-output').innerHTML = '<div class="form-control image-output" id="webrequest-result"></div>';
+                        let img = document.createElement('img');
+                        img.src = reader.result;
+                        document.getElementById('webrequest-result').appendChild(img);
+                    };
+                    reader.readAsDataURL(blob);
+                });
+            } else {
+                return response.text().then(text => {
+                    if (isHtml(text)) {
+                        document.getElementById('webrequest-result-output').innerHTML = '<div class="form-control html-output" id="webrequest-result"></div>';
+                        document.getElementById('webrequest-result').innerHTML = text;
+                    } else {
+                        document.getElementById('webrequest-result-output').innerHTML = '<textarea class="form-control" id="webrequest-result" rows="4" readonly></textarea>';
+                        document.getElementById('webrequest-result').value = text;
+                    }
+                });
+            }
         });
     }, false);
 </script>

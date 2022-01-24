@@ -1,6 +1,7 @@
 #!make
 
 start:
+serve:
 	@docker-compose up -d
 	@echo "Visit: <http://localhost:10000>"
 
