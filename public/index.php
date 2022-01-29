@@ -209,10 +209,17 @@ if ($isRequest) {
         .hljs-ln-code {
             padding-left: 10px !important;
         }
+
+        @media (max-width: 480px) {
+            .h1.title, h1.title {
+                font-size: 1.34375rem;
+            }
+        }
+
     </style>
 </head>
 <body onload="document.body.style.opacity='1'">
-<div class="navbar navbar-expand-lg navbar-dark navbar-shadow bg-primary mb-3 navbar-shadow">
+<div class="navbar navbar-expand-lg navbar-dark navbar-shadow bg-primary mb-3 navbar-shadow fixed-top-no ">
     <div class="container">
         <a href="../" class="navbar-brand font-weight-bold">
             <img src="/logo.png" width="27" height="27" alt="webrequest.ml"> webrequest<small class="text-white-70">.cc</small>
@@ -231,16 +238,17 @@ if ($isRequest) {
             </ul>
         </div>
     </div>
+    <a href="<?=$forkUrl?>" target="_blank" class="d-none d-xl-block"><img loading="lazy" width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_green_007200.png?resize=149%2C149" style="position:absolute;top:0;right:0;border:0;" alt="Fork me on GitHub" data-recalc-dims="1"></a>
 </div>
 <div class="container">
     <div class="bs-docs-section">
         <div class="row">
             <div class="col-lg-12">
                 <div class="page-header">
-                    <a class="btn btn-lg btn-primary float-right" href="https://github.com/javanile/webrequest-template/generate" target="_blank">
+                    <a class="btn btn-lg btn-primary float-right d-none d-lg-block" href="https://github.com/javanile/webrequest-template/generate" target="_blank">
                         <i class="fas fa-puzzle-piece"></i> Create Project
                     </a>
-                    <h1 class="mb-3"><i class="fab fa-<?=$platform?>"></i> <?=$vendor?> / <?=$package?></h1>
+                    <h1 class="mb-3 title"><i class="fab fa-<?=$platform?>"></i> <?=$vendor?> / <?=$package?></h1>
                 </div>
             </div>
         </div>
@@ -399,8 +407,6 @@ if ($isRequest) {
         </div>
     </footer>
 </div>
-
-<a href="<?=$forkUrl?>" target="_blank" class="d-none d-xl-block"><img loading="lazy" width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_green_007200.png?resize=149%2C149" style="position:absolute;top:0;right:0;border:0;" alt="Fork me on GitHub" data-recalc-dims="1"></a>
 
 <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"></script>
 <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/php.min.js"></script>
