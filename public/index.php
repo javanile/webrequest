@@ -108,16 +108,14 @@ if ($isRequest) {
     <meta charset="utf-8">
     <title>webrequest.cc</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/minty/bootstrap.min.css" integrity="sha384-H4X+4tKc7b8s4GoMrylmy2ssQYpDHoqzPa9aKXbDwPoPUA3Ra8PA5dGzijN+ePnH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.6.1/dist/yeti/bootstrap.min.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/regular.min.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/brands.min.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/solid.min.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/styles/solarized-light.min.css">
-
-    <script src="https://cdn.jsdelivr.net/npm/shepherd.js@8.3.1/dist/js/shepherd.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/stackoverflow-light.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@8.3.1/dist/css/shepherd.css"/>
-
     <link rel="shortcut icon" href="/favicon.ico">
     <style>
         body {
@@ -134,9 +132,6 @@ if ($isRequest) {
         }
         .card-header {
             padding: 0.75rem 1.25rem 0.6rem;
-        }
-        .card-header, .card-footer {
-            background-color: #FFEDDF !important;
         }
         .navbar-dark .navbar-nav .nav-link, .text-white-70 {
             color: rgba(255, 255, 255, 0.7) !important;
@@ -159,8 +154,9 @@ if ($isRequest) {
             font-weight: bold;
         }
         .source-panel {
-            background-color: #fdf6e3;
-            padding: 0 13px 0 13px;
+            /*background-color: #fdf6e3;*/
+            /*padding: 0 13px 0 13px;*/
+            padding: 0;
         }
         #script {
             color: #fdf6e3;
@@ -191,6 +187,27 @@ if ($isRequest) {
         }
         #footer {
             color: #888888;
+        }
+
+        .hljs-ln-numbers {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+
+            text-align: center;
+            color: #ccc;
+            border-right: 1px solid #CCC;
+            vertical-align: top;
+            padding-right: 5px !important;
+
+        }
+
+
+        .hljs-ln-code {
+            padding-left: 10px !important;
         }
     </style>
 </head>
@@ -385,10 +402,11 @@ if ($isRequest) {
 
 <a href="<?=$forkUrl?>" target="_blank" class="d-none d-xl-block"><img loading="lazy" width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_green_007200.png?resize=149%2C149" style="position:absolute;top:0;right:0;border:0;" alt="Fork me on GitHub" data-recalc-dims="1"></a>
 
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/highlight.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/languages/php.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/php.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
-<script>hljs.highlightAll();/*hljs.initLineNumbersOnLoad();*/</script>
+<script src="//cdn.jsdelivr.net/npm/shepherd.js@8.3.1/dist/js/shepherd.min.js"></script>
+<script>hljs.highlightAll();hljs.initLineNumbersOnLoad();</script>
 <script>
     function isHtml(input) {
         return /<[a-z]+\d?(\s+[\w-]+=("[^"]*"|'[^']*'))*\s*\/?>|&#?\w+;/i.test(input);
@@ -440,7 +458,7 @@ if ($isRequest) {
         useModalOverlay: true,
         defaultStepOptions: {
             classes: 'shadow-md bg-purple-dark',
-            scrollTo: true
+            scrollTo: { behavior: 'smooth', block: 'center' }
         }
     });
 
@@ -476,7 +494,7 @@ if ($isRequest) {
         ]
     });
 
-    tour.start();
+    //tour.start();
 
 </script>
 </body>
