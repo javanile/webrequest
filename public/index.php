@@ -131,6 +131,7 @@ if ($isRequest) {
             box-shadow: 0 0px 2px 0 #333;
         }
         .card-header {
+            font-weight: bold;
             padding: 0.75rem 1.25rem 0.6rem;
         }
         .navbar-dark .navbar-nav .nav-link, .text-white-70 {
@@ -256,7 +257,7 @@ if ($isRequest) {
             <div class="col-lg-8 pr-lg-0">
                 <div class="bs-component">
                     <div class="card border-primary card-shadow mb-3">
-                        <div class="card-header"><i class="fas fa-scroll"></i> <?=$variantFile?></div>
+                        <div class="card-header">&#x1F4DC; <!--i class="fas fa-scroll"></i--> <?=$variantFile?></div>
                         <div class="source-panel">
                             <pre class="mb-0"><code id="script" lass="php"><?=htmlentities($controller, ENT_COMPAT)?></code></pre>
                         </div>
@@ -295,7 +296,7 @@ if ($isRequest) {
             <div class="col-lg-4">
                 <div class="bs-component">
                     <div class="card card-shadow mb-3">
-                        <div class="card-header">Insights</div>
+                        <div class="card-header"><i class="fas fa-chart-bar"></i> Insights</div>
                         <div class="card-body">
                             <p class="card-text"><?=$insights['description']?></p>
                             <table class="table table-borderless table-sm mb-0">
