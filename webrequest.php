@@ -36,11 +36,13 @@ Follow this easy steps:
 
 ## What can I do?
 
-You can use Webrequest.cc as layer of interconnaction between systems, as examples:
+You can use Webrequest.cc as layer of interconnection between systems, as examples:
 
-- Trasform XML inputs into JSON, than forward the request to another API
+- Transform XML inputs into JSON, then forward the request to another API
 - Remove or reduce large inputs into smaller one
-- Fork a signle No-code trigger to start multiple workflows
+- Fork a single No-code trigger to start multiple workflows
+
+These are just examples, but you can do EVERYTHING is a PHP script.
 
 */
 
