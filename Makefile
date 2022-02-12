@@ -14,6 +14,15 @@ update:
 require:
 	@docker-compose run --rm php composer require --prefer-dist guzzlehttp/guzzle
 
+## ======
+## Docker
+## ======
+
+push:
+	@docker login -u javanile
+	@docker build -t javanile/webrequest .
+	@docker push javanile/webrequest
+
 ## =====
 ## Tests
 ## =====
