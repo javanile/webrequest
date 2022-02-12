@@ -23,3 +23,6 @@ test-guzzle:
 
 test-laravel:
 	@docker-compose run --rm php ./vendor/bin/pest tests/LaravelTest.php
+
+test-local:
+	@docker run --rm -v $PWD:/app -p 8080:80 javanile/webrequest tests/fixtures/local/ui.php
