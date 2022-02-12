@@ -8,6 +8,6 @@
     <link rel="stylesheet" href="https://unpkg.com/webrequest-ui@0.1.1/dist/css/webrequest-ui.css" />
 </head>
 <body>
-    <h1>Hello!</h1>
+    <h1>Hello World!</h1>
 </body>
 </html>

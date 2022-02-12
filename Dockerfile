@@ -15,5 +15,7 @@ RUN a2enmod rewrite
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
 
 COPY entrypoint.sh /usr/local/bin/webrequest-entrypoint
+COPY public/ /var/www/html/public/
+COPY vendor/ /var/www/html/vendor/
 RUN chmod +x /usr/local/bin/webrequest-entrypoint
 ENTRYPOINT ["webrequest-entrypoint"]
