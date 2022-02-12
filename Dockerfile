@@ -13,3 +13,7 @@ RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf
 RUN a2enmod rewrite
 
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
+
+COPY entrypoint.sh /usr/local/bin/webrequest-entrypoint
+RUN chmod +x /usr/local/bin/webrequest-entrypoint
+ENTRYPOINT ["webrequest-entrypoint"]

@@ -19,10 +19,11 @@ require:
 ## =====
 
 test-guzzle:
-	@docker-compose run --rm php ./vendor/bin/pest tests/GuzzleTest.php
+	@docker-compose run --rm webrequest ./vendor/bin/pest tests/GuzzleTest.php
 
 test-laravel:
-	@docker-compose run --rm php ./vendor/bin/pest tests/LaravelTest.php
+	@docker-compose run --rm webrequest ./vendor/bin/pest tests/LaravelTest.php
 
 test-local:
-	@docker run --rm -v $PWD:/app -p 8080:80 javanile/webrequest tests/fixtures/local/ui.php
+	@docker-compose build webrequest
+	@docker run --rm -v $$PWD:/app -p 8080:80 javanile/webrequest tests/fixtures/local/ui.php
