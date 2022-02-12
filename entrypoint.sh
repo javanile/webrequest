@@ -2,7 +2,6 @@
 shopt -s nocasematch
 
 if [[ $1 = *.php ]]; then
-  ls /app/$1
   if [[ -f "/app/$1" ]]; then
     echo "Run sandbox for developer... (press [Ctrl] + [C] to stop)"
     server=$(mktemp /tmp/dev-server-XXXXXX.php)
@@ -17,4 +16,3 @@ fi
 
 echo "[webrequest] Run main process..."
 docker-php-entrypoint $*
-
