@@ -3,7 +3,7 @@ shopt -s nocasematch
 
 if [[ $1 = *.php ]]; then
   if [[ -f "/app/$1" ]]; then
-    echo -n "Run the sandbox at http://localhost:8080 (press [Ctrl] + [C] to stop) "
+    echo -n "Run the sandbox at http://localhost:8080 ...press [Ctrl]+[C] to stop "
     server=$(mktemp /tmp/dev-server-XXXXXX.php)
     echo "<?php" > $server
     echo "require_once '/var/www/html/vendor/autoload.php';" >> $server
