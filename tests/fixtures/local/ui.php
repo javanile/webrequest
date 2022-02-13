@@ -9,5 +9,6 @@
 </head>
 <body>
     <h1>Hello World!</h1>
+    <?php print_r($_SERVER['REQUEST_URI']); ?>
 </body>
 </html>

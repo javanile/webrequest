@@ -6,7 +6,7 @@ if [[ $1 = *.php ]]; then
     server=$(mktemp /tmp/dev-server-XXXXXX.php)
     echo "<?php" > $server
     echo "require_once '/var/www/html/vendor/autoload.php';" >> $server
-    echo "require_once '/app/$1';" >> $server
+    echo "require_once \$_SERVER['REQUEST_URI'] == '/test' ? '/var/www/html/webrequest-test.php' : '/app/$1';" >> $server
     echo -n "Run the sandbox at http://localhost:8080/test ...press [Ctrl]+[C] to stop "
     trap "echo heers^" INT
     php -S 0.0.0.0:80 $server 2> /dev/null

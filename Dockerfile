@@ -17,5 +17,6 @@ RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/lo
 COPY entrypoint.sh /usr/local/bin/webrequest-entrypoint
 COPY public/ /var/www/html/public/
 COPY vendor/ /var/www/html/vendor/
+COPY webrequest.php webrequest-*.php /var/www/html/
 RUN chmod +x /usr/local/bin/webrequest-entrypoint
 ENTRYPOINT ["webrequest-entrypoint"]
