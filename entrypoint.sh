@@ -7,7 +7,7 @@ if [[ $1 = *.php ]]; then
     echo "<?php" > $server
     echo "require_once '/var/www/html/vendor/autoload.php';" >> $server
     echo "require_once '/app/$1';" >> $server
-    echo -n "Run the sandbox at http://localhost:8080 ...press [Ctrl]+[C] to stop "
+    echo -n "Run the sandbox at http://localhost:8080/test ...press [Ctrl]+[C] to stop "
     trap "echo heers^" INT
     php -S 0.0.0.0:80 $server 2> /dev/null
     exit
