@@ -315,7 +315,7 @@ if ($isRequest) {
                         <div class="card-header">Try it out</div>
                         <div class="card-body">
                             <p class="card-text">This action will make a web request, then it will show you the result.</p>
-                            <form>
+                            <form webrequest>
                                 <div class="form-group">
                                     <label for="webrequest-arguments">Arguments</label>
                                     <div class="form-group row position-relative">
@@ -459,49 +459,6 @@ if ($isRequest) {
             }
         });
     }, false);
-
-
-    const tour = new Shepherd.Tour({
-        useModalOverlay: true,
-        defaultStepOptions: {
-            classes: 'shadow-md bg-purple-dark',
-            scrollTo: { behavior: 'smooth', block: 'center' }
-        }
-    });
-
-    tour.addStep({
-        id: 'example-step',
-        text: 'This step is attached to the bottom of the <code>.example-css-selector</code> element.',
-        attachTo: {
-            element: '.tour-try-it-out',
-            on: 'bottom'
-        },
-        classes: 'example-step-extra-class',
-        buttons: [
-            {
-                text: 'Next',
-                action: tour.next
-            }
-        ]
-    });
-
-    tour.addStep({
-        id: 'example-step-2',
-        text: 'This step is attached to the bottom of the <code>.example-css-selector</code> element.',
-        attachTo: {
-            element: '.tour-try-it-out-submit',
-            on: 'bottom'
-        },
-        classes: 'example-step-extra-class',
-        buttons: [
-            {
-                text: 'Next',
-                action: tour.next
-            }
-        ]
-    });
-
-    //tour.start();
 
 </script>
 </body>
