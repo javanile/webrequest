@@ -36,3 +36,6 @@ test-laravel:
 test-local:
 	@docker-compose build webrequest
 	@docker run --rm -it -v $$PWD:/app -v $$PWD:/var/www/html -p 8080:80 javanile/webrequest tests/fixtures/local/ui.php
+
+test-live-post:
+	@bash tests/live/post-test.sh
