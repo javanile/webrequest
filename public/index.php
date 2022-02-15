@@ -230,6 +230,8 @@ if ($isRequest) {
         }
 
     </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KV2LHQ1715"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-KV2LHQ1715');</script>
 </head>
 <body onload="document.body.style.opacity='1'">
 <div class="navbar navbar-expand-lg navbar-dark navbar-shadow bg-primary mb-3 navbar-shadow fixed-top-no ">
