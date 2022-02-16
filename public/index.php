@@ -40,10 +40,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+$defaultVendor = 'javanile';
+$defaultPackage = 'webrequest';
+$defaultVariant = '';
+
 $uri = explode('/', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
-$vendor = $uri[1] ?: 'javanile';
-$package = $uri[2] ?? 'webrequest';
-$variant = $uri[3] ?? '';
+$vendor = $uri[1] ?: $defaultVendor;
+$package = $uri[2] ?? $defaultPackage;
+$variant = $uri[3] ?? $defaultVariant;
+if ($uri[1] && empty($uri[2]) && $uri[1] != $defaultVendor) {
+    $vendor = $defaultVendor;
+    $package = $defaultPackage;
+    $variant = $uri[1];
+}
 $variantFile = 'webrequest'.($variant ? '-'.$variant : '').'.php';
 $variantPath = $vendor.'/'.$package.($variant ? '/'.$variant : '');
 $publicUrl = 'http://'.$_SERVER['HTTP_HOST'].'/'.$variantPath.'?';

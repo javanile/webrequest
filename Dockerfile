@@ -19,4 +19,6 @@ COPY public/ /var/www/html/public/
 COPY vendor/ /var/www/html/vendor/
 COPY webrequest.php webrequest-*.php /var/www/html/
 RUN chmod +x /usr/local/bin/webrequest-entrypoint
+
+CMD ["apache2-foreground"]
 ENTRYPOINT ["webrequest-entrypoint"]

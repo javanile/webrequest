@@ -1,6 +1,8 @@
 #!/bin/bash
 shopt -s nocasematch
 
+echo "ARGS: $@"
+
 if [[ $1 = *.php ]]; then
   if [[ -f "/app/$1" ]]; then
     server=$(mktemp /tmp/dev-server-XXXXXX.php)
@@ -15,4 +17,4 @@ if [[ $1 = *.php ]]; then
 fi
 
 echo "[webrequest] Run main process..."
-docker-php-entrypoint $*
+docker-php-entrypoint "$@"

@@ -1,9 +1,11 @@
 #!make
 
-start:
+start: serve
+
 serve:
-	@docker-compose up -d
-	@echo "Visit: <http://localhost:10000>"
+	@docker-compose build webrequest
+	@docker-compose up -d --force-recreate
+	@echo "Visit: <http://localhost:8080>"
 
 build:
 	@docker-compose build php
