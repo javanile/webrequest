@@ -401,6 +401,14 @@ if ($isRequest) {
                         </ul>
                     </div>
                     <div class="card card-shadow mb-3">
+                        <div class="card-header">Utility</div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><a href="https://hurl.dev/" target="_blank">Hurl</a></li>
+                            <li class="list-group-item"><a href="https://replit.com/" target="_blank">Replit</a></li>
+                            <li class="list-group-item"><a href="https://reqbin.com/" target="_blank">REQBIN</a></li>
+                        </ul>
+                    </div>
+                    <div class="card card-shadow mb-3">
                         <div class="card-header">Debug</div>
                         <div class="card-body">
                             <table class="table table-borderless table-sm mb-0">
