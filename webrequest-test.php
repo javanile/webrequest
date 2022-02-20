@@ -25,15 +25,15 @@
         <div class="container-fluid bg-light">
             <div class="row py-2">
                 <div class="col-3">
-                    <div class="row position-relative">
+                    <div class="row position-relative" x-data="{ value1: 'value1' }">
                         <div class="background-text">
                             =
                         </div>
                         <div class="col-6">
-                            <input type="text" class="form-control" placeholder="value1" value="value1">
+                            <input type="text" class="form-control" placeholder="value1 name" x-model="value1">
                         </div>
                         <div class="col-6">
-                            <input type="text" class="form-control" placeholder="value1" value="">
+                            <input type="text" class="form-control" x-bind:placeholder="value1" x-bind:name="value1">
                         </div>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row pb-2">
+            <div class="row pb-2" style="display: none">
                 <div class="col-3">
                     <div class="row position-relative">
                         <div class="background-text">
