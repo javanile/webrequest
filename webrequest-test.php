@@ -4,19 +4,19 @@
     <meta charset="utf-8" />
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://unpkg.com/webrequest-ui@0.1.5/dist/css/webrequest-ui.css" />
+    <link rel="stylesheet" href="https://unpkg.com/webrequest-ui@0.1.6/dist/css/webrequest-ui.css" />
 </head>
 <body>
     <form webrequest="output" x-data="{ action: '' }" x-bind:action="action">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid px-0">
                 <a href="javascript:;" class="navbar-brand font-weight-bold">
-                    <img src="https://unpkg.com/webrequest-ui@0.1.5/dist/images/logo.png" width="27" height="27" alt="webrequest.ml">
+                    <img src="https://unpkg.com/webrequest-ui@0.1.6/dist/images/logo.png" width="27" height="27" alt="webrequest.ml">
                     webrequest<small class="text-white-70">.cc</small>
                 </a>
                 <div class="collapse navbar-collapse" id="navbarColor01">
                     <form class="d-flex">
-                        <input class="form-control me-sm-2" type="text" placeholder="Webrequest URL to test...">
+                        <input class="form-control me-sm-2" type="text" placeholder="Webrequest URL to test..." x-model="action">
                         <button class="btn btn-secondary my-2 my-sm-0" type="submit">TEST!</button>
                     </form>
                 </div>
@@ -134,6 +134,6 @@
         </div>
     </form>
     <div id="output" class="h-100 bg-dark"></div>
-    <script charset="utf-8" src="https://unpkg.com/webrequest-ui@0.1.5/dist/js/webrequest-ui.js"></script>
+    <script charset="utf-8" src="https://unpkg.com/webrequest-ui@0.1.6/dist/js/webrequest-ui.js"></script>
 </body>
 </html>
