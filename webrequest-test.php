@@ -4,14 +4,14 @@
     <meta charset="utf-8" />
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://unpkg.com/webrequest-ui@0.1.9/dist/css/webrequest-ui.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/javanile/webrequest-ui@main/dist/css/webrequest-ui.css" />
 </head>
 <body>
     <form webrequest="output" x-data="{ action: '' }" x-bind:action="action">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid px-0">
                 <a href="javascript:;" class="navbar-brand font-weight-bold">
-                    <img src="https://unpkg.com/webrequest-ui@0.1.9/dist/images/logo.png" width="27" height="27" alt="webrequest.ml">
+                    <img src="https://cdn.jsdelivr.net/gh/javanile/webrequest-ui@main/dist/images/logo.png" width="27" height="27" alt="webrequest.ml">
                     webrequest<small class="text-white-70">.cc</small>
                 </a>
                 <div class="collapse navbar-collapse" id="navbarColor01">
