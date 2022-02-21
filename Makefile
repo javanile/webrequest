@@ -21,7 +21,7 @@ require:
 ## ======
 
 stop:
-	@docker stop $$(docker ps | grep ":8080" | cut -c1-12)
+	@docker stop $$(docker ps | grep ":8080" | cut -c1-12) > /dev/null 2>&1 || true
 
 push:
 	@docker login -u javanile
@@ -32,7 +32,7 @@ push:
 ## Develop
 ## =======
 
-dev-test:
+dev-test: stop
 	@docker-compose build webrequest
 	@docker run --rm -it -v $$PWD:/app -v $$PWD:/var/www/html -p 8080:80 javanile/webrequest webrequest.php
 

@@ -4,21 +4,21 @@
     <meta charset="utf-8" />
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://unpkg.com/webrequest-ui@0.1.6/dist/css/webrequest-ui.css" />
+    <link rel="stylesheet" href="https://unpkg.com/webrequest-ui@0.1.9/dist/css/webrequest-ui.css" />
 </head>
 <body>
     <form webrequest="output" x-data="{ action: '' }" x-bind:action="action">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid px-0">
                 <a href="javascript:;" class="navbar-brand font-weight-bold">
-                    <img src="https://unpkg.com/webrequest-ui@0.1.6/dist/images/logo.png" width="27" height="27" alt="webrequest.ml">
+                    <img src="https://unpkg.com/webrequest-ui@0.1.9/dist/images/logo.png" width="27" height="27" alt="webrequest.ml">
                     webrequest<small class="text-white-70">.cc</small>
                 </a>
                 <div class="collapse navbar-collapse" id="navbarColor01">
-                    <form class="d-flex">
+                    <div class="d-flex w-100">
                         <input class="form-control font-weight-bold me-sm-2" type="text" placeholder="Webrequest URL to test..." x-model="action">
                         <button class="btn btn-secondary font-weight-bold my-2 my-sm-0" type="submit">TEST!</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -38,41 +38,41 @@
                     </div>
                 </div>
                 <div class="col-3">
-                    <div class="row position-relative">
+                    <div class="row position-relative" x-data="{ value2: 'value2' }">
                         <div class="background-text">
                             =
                         </div>
                         <div class="col-6">
-                            <input type="text" class="form-control" placeholder="value2" value="value2">
+                            <input type="text" class="form-control" placeholder="value2 name" x-model="value2">
                         </div>
                         <div class="col-6">
-                            <input type="text" class="form-control" placeholder="value2" value="">
+                            <input type="text" class="form-control" x-bind:placeholder="value2" x-bind:name="value2">
                         </div>
                     </div>
                 </div>
                 <div class="col-3">
-                    <div class="row position-relative">
+                    <div class="row position-relative" x-data="{ value3: 'value3' }">
                         <div class="background-text">
                             =
                         </div>
                         <div class="col-6">
-                            <input type="text" class="form-control" placeholder="value3" value="value3">
+                            <input type="text" class="form-control" placeholder="value3 name" x-model="value3">
                         </div>
                         <div class="col-6">
-                            <input type="text" class="form-control" placeholder="value3" value="">
+                            <input type="text" class="form-control" x-bind:placeholder="value3" x-bind:name="value3">
                         </div>
                     </div>
                 </div>
                 <div class="col-3">
-                    <div class="row position-relative">
+                    <div class="row position-relative" x-data="{ value4: 'value4' }">
                         <div class="background-text">
                             =
                         </div>
                         <div class="col-6">
-                            <input type="text" class="form-control" placeholder="value4" value="value4">
+                            <input type="text" class="form-control" placeholder="value4 name" x-model="value4">
                         </div>
                         <div class="col-6">
-                            <input type="text" class="form-control" placeholder="value4" value="">
+                            <input type="text" class="form-control" x-bind:placeholder="value4" x-bind:name="value4">
                         </div>
                     </div>
                 </div>
@@ -134,6 +134,6 @@
         </div>
     </form>
     <div id="output" class="h-100 bg-dark"></div>
-    <script charset="utf-8" src="https://unpkg.com/webrequest-ui@0.1.6/dist/js/webrequest-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/javanile/webrequest-ui@main/dist/js/webrequest-ui.js"></script>
 </body>
 </html>
