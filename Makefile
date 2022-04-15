@@ -8,13 +8,13 @@ serve:
 	@echo "Visit: <http://localhost:8080>"
 
 build:
-	@docker-compose build php
+	@docker-compose build webrequest
 
 update:
-	@docker-compose run --rm php composer update
+	@docker-compose run --rm webrequest composer update
 
 require:
-	@docker-compose run --rm php composer require --prefer-dist guzzlehttp/guzzle
+	@docker-compose run --rm webrequest composer require --prefer-dist sleiman/airtable-php
 
 ## ======
 ## Docker
