@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "227093c2648592b0f011b34a999a7ba1",
+    "content-hash": "5e56d121f0b35b972d3b30f09a75535f",
     "packages": [
         {
             "name": "brick/math",
@@ -943,6 +943,66 @@
                 }
             ],
             "time": "2021-10-06T17:43:30+00:00"
+        },
+        {
+            "name": "javanile/php-input",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/javanile/php-input.git",
+                "reference": "4c8a14683d32f877a23401378bb00e828f9b3ea2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/javanile/php-input/zipball/4c8a14683d32f877a23401378bb00e828f9b3ea2",
+                "reference": "4c8a14683d32f877a23401378bb00e828f9b3ea2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "pestphp/pest": "1.x-dev"
+            },
+            "type": "library",
+            "extra": {
+                "thanks": {
+                    "name": "javanile/webrequest",
+                    "url": "https://github.com/javanile/webrequest"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ],
+                "psr-4": {
+                    "Javanile\\PhpInput\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Francesco Bianco",
+                    "homepage": "https://github.com/francescobianco"
+                }
+            ],
+            "description": "Implement no-code input function for PHP",
+            "homepage": "https://github.com/javanile/php-inpuy",
+            "keywords": [
+                "input",
+                "lowcode",
+                "nocode",
+                "web3",
+                "webrequest"
+            ],
+            "support": {
+                "issues": "https://github.com/javanile/php-input/issues",
+                "source": "https://github.com/javanile/php-input/tree/0.1.0"
+            },
+            "time": "2022-04-15T16:59:38+00:00"
         },
         {
             "name": "knplabs/github-api",

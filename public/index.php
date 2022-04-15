@@ -26,6 +26,7 @@
  */
 
 require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__.'/../src/aliases.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     header('Access-Control-Allow-Origin: *');

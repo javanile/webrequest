@@ -14,7 +14,7 @@ update:
 	@docker-compose run --rm webrequest composer update
 
 require:
-	@docker-compose run --rm webrequest composer require --prefer-dist sleiman/airtable-php
+	@docker-compose run --rm webrequest composer require --prefer-dist javanile/php-input
 
 ## ======
 ## Docker
@@ -45,6 +45,9 @@ test-guzzle:
 
 test-laravel:
 	@docker-compose run --rm webrequest ./vendor/bin/pest tests/LaravelTest.php
+
+test-airtable:
+	@docker-compose run --rm webrequest ./vendor/bin/pest tests/AirtableTest.php
 
 test-local:
 	@docker-compose build webrequest

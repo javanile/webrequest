@@ -9,7 +9,8 @@
     "symfony/http-client": "^5.3",
     "nyholm/psr7": "^1.4",
     "guzzlehttp/guzzle": "^7.4",
-    "sleiman/airtable-php": "^2.4"
+    "sleiman/airtable-php": "^2.4",
+    "javanile/php-input": "^0.1.0"
   },
   "require-dev": {
     "heroku/heroku-buildpack-php": "*",
