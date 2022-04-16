@@ -26,4 +26,4 @@
  */
 
 class Airtable extends \TANIOS\Airtable\Airtable {}
-
+class Http extends \GuzzleHttp\Client {}
