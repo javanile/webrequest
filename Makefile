@@ -43,6 +43,9 @@ dev-test: stop
 test-guzzle:
 	@docker-compose run --rm webrequest ./vendor/bin/pest tests/GuzzleTest.php
 
+test-http:
+	@docker-compose run --rm webrequest ./vendor/bin/pest tests/HttpTest.php
+
 test-laravel:
 	@docker-compose run --rm webrequest ./vendor/bin/pest tests/LaravelTest.php
 
