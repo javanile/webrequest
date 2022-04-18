@@ -32,7 +32,7 @@
                             =
                         </div>
                         <div class="col-6">
-                            <input type="text" class="form-control" placeholder="value1 name" x-model="value1">
+                            <input type="text" class="form-control font-weight-bold" placeholder="value1 name" x-model="value1">
                         </div>
                         <div class="col-6">
                             <input type="text" class="form-control" x-bind:placeholder="value1" x-bind:name="value1">
@@ -45,7 +45,7 @@
                             =
                         </div>
                         <div class="col-6">
-                            <input type="text" class="form-control" placeholder="value2 name" x-model="value2">
+                            <input type="text" class="form-control font-weight-bold" placeholder="value2 name" x-model="value2">
                         </div>
                         <div class="col-6">
                             <input type="text" class="form-control" x-bind:placeholder="value2" x-bind:name="value2">
@@ -58,7 +58,7 @@
                             =
                         </div>
                         <div class="col-6">
-                            <input type="text" class="form-control" placeholder="value3 name" x-model="value3">
+                            <input type="text" class="form-control font-weight-bold" placeholder="value3 name" x-model="value3">
                         </div>
                         <div class="col-6">
                             <input type="text" class="form-control" x-bind:placeholder="value3" x-bind:name="value3">
@@ -71,7 +71,7 @@
                             =
                         </div>
                         <div class="col-6">
-                            <input type="text" class="form-control" placeholder="value4 name" x-model="value4">
+                            <input type="text" class="form-control font-weight-bold" placeholder="value4 name" x-model="value4">
                         </div>
                         <div class="col-6">
                             <input type="text" class="form-control" x-bind:placeholder="value4" x-bind:name="value4">
