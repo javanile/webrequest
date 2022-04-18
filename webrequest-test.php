@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/javanile/webrequest-ui@main/dist/css/webrequest-ui.css" />
 </head>
 <body>
-    <form webrequest="output" x-data="{ action: '' }" x-bind:action="action">
+    <form webrequest="output" x-data="{ action: '<?=input('url')?>' }" x-bind:action="action">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid px-0">
                 <a href="javascript:;" class="navbar-brand font-weight-bold">

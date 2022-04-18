@@ -16,6 +16,17 @@ update:
 require:
 	@docker-compose run --rm webrequest composer require --prefer-dist javanile/php-input
 
+
+## ======
+## Heroku
+## ======
+
+remote:
+	@heroku git:remote -a javanile-webrequest
+
+deploy:
+	@git push heroku main
+
 ## ======
 ## Docker
 ## ======

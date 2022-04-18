@@ -41,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+$domain = 'webrequest.cc';
 $defaultVendor = 'javanile';
 $defaultPackage = 'webrequest';
 $defaultVariant = '';
@@ -56,7 +57,7 @@ if ($uri[1] && empty($uri[2]) && $uri[1] != $defaultVendor) {
 }
 $variantFile = 'webrequest'.($variant ? '-'.$variant : '').'.php';
 $variantPath = $vendor.'/'.$package.($variant ? '/'.$variant : '');
-$publicUrl = 'http://'.$_SERVER['HTTP_HOST'].'/'.$variantPath.'?';
+$publicUrl = 'https://'.$domain.'/'.$variantPath;
 $repository = $vendor.'/'.$package;
 $platform = 'github';
 $bypassLandingPage = str_contains($_SERVER['HTTP_USER_AGENT'], 'spreadsheets') || (isset($_GET['_bypass_landing_page']) && $_GET['_bypass_landing_page'] == 'yes');
@@ -336,7 +337,10 @@ if ($isRequest) {
                         </div>
                     </div>
                     <div class="card card-shadow mb-3 tour-try-it-out">
-                        <div class="card-header">Try it out</div>
+                        <div class="card-header">
+                            Try it out
+                            <a class="btn btn-light" style="position:absolute;right:4px;top:4px;" href="https://webrequest.cc/test?_bypass_landing_page=yes&url=<?=urlencode($publicUrl)?>" target="_blank"><i class="fas fa-bug"></i></a>
+                        </div>
                         <div class="card-body">
                             <p class="card-text">This action will make a web request, then it will show you the result.</p>
                             <form webrequest>
