@@ -16,8 +16,10 @@
                 </a>
                 <div class="collapse navbar-collapse" id="navbarColor01">
                     <div class="d-flex w-100">
-                        <input class="form-control font-weight-bold me-sm-2" type="text" placeholder="Webrequest URL to test..." x-model="action">
-                        <button class="btn btn-secondary font-weight-bold my-2 my-sm-0" type="submit">TEST!</button>
+                        <input class="form-control font-weight-bold me-sm-2 border-0" type="text" placeholder="Webrequest URL to test..." x-model="action">
+                        <button class="btn btn-secondary font-weight-bold my-2 my-sm-0 border-0" type="submit">
+                            TEST!
+                        </button>
                     </div>
                 </div>
             </div>
