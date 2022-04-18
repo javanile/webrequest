@@ -282,15 +282,18 @@ if ($isRequest) {
             <div class="col-lg-8 pr-lg-0">
                 <div class="bs-component">
                     <div class="card border-primary card-shadow mb-3">
-                        <div class="card-header">&#x1F4DC; <!--i class="fas fa-scroll"></i--> <?=$variantFile?></div>
+                        <div class="card-header">
+                            <i class="fab fa-php"></i>
+                            <?=$variantFile?>
+                            <a href="<?=$editUrl?>" target="_blank" class="btn btn-light" style="position: absolute; top:4px; right:4px;">
+                                <i class="fas fa-pencil-alt"></i>
+                            </a>
+                        </div>
                         <div class="source-panel">
                             <pre class="mb-0"><code id="script" lass="php"><?=htmlentities($controller, ENT_COMPAT)?></code></pre>
                         </div>
                         <div class="card-footer text-muted">
-                            <a href="<?=$editUrl?>" target="_blank" class="btn btn-info btn-sm">
-                                <i class="fas fa-pencil-alt"></i>
-                                Edit
-                            </a>
+
                         </div>
                     </div>
                     <div class="card card-shadow mb-3">
@@ -321,7 +324,7 @@ if ($isRequest) {
             <div class="col-lg-4">
                 <div class="bs-component">
                     <div class="card card-shadow mb-3">
-                        <div class="card-header"><i class="fas fa-chart-bar"></i> Insights</div>
+                        <div class="card-header">Insights</div>
                         <div class="card-body">
                             <p class="card-text"><?=$insights['description']?></p>
                             <table class="table table-borderless table-sm mb-0">
