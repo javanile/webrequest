@@ -133,7 +133,7 @@
             </div>
         </div>
     </form>
-    <div id="output" class="h-100 bg-dark"></div>
+    <div id="output" class="dashed-box d-flex flex-grow-1 flex-column"></div>
     <script src="https://cdn.jsdelivr.net/gh/javanile/webrequest-ui@main/dist/js/webrequest-ui.js"></script>
 </body>
 </html>
