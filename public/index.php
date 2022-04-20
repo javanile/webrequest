@@ -139,7 +139,7 @@ if ($isRequest) {
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/solid.min.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/stackoverflow-light.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@8.3.1/dist/css/shepherd.css"/>
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/javanile/webrequest-ui@main/dist/images/favicon.ico">
     <style>
         body {
             color: #555;
@@ -248,7 +248,7 @@ if ($isRequest) {
 <div class="navbar navbar-expand-lg navbar-dark navbar-shadow bg-primary mb-3 navbar-shadow fixed-top-no ">
     <div class="container">
         <a href="../" class="navbar-brand font-weight-bold">
-            <img src="/logo.png" width="27" height="27" alt="webrequest.ml"> webrequest<small class="text-white-70">.cc</small>
+            <img src="https://cdn.jsdelivr.net/gh/javanile/webrequest-ui@main/dist/images/logo.png" width="27" height="27" alt="webrequest.ml"> webrequest<small class="text-white-70">.cc</small>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
