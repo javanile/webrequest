@@ -342,7 +342,7 @@ if ($isRequest) {
                     <div class="card card-shadow mb-3 tour-try-it-out">
                         <div class="card-header">
                             Try it out
-                            <a class="btn btn-light" style="position:absolute;right:4px;top:4px;" href="https://webrequest.cc/test?_bypass_landing_page=yes&url=<?=urlencode($publicUrl)?>" target="_blank"><i class="fas fa-bug"></i></a>
+                            <a class="btn btn-light" style="position:absolute;right:4px;top:4px;" href="https://webrequest.cc/debug?_bypass_landing_page=yes&url=<?=urlencode($publicUrl)?>" target="_blank"><i class="fas fa-bug"></i></a>
                         </div>
                         <div class="card-body">
                             <p class="card-text">This action will make a web request, then it will show you the result.</p>

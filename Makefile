@@ -2,7 +2,7 @@
 
 start: serve
 
-serve:
+serve: stop
 	@docker-compose build webrequest
 	@docker-compose up -d --force-recreate
 	@echo "Visit: <http://localhost:8080>"
