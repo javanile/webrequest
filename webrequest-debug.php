@@ -20,34 +20,9 @@
                         <button class="btn btn-secondary font-weight-bold my-2 my-sm-0 border-0" type="submit">
                             TEST!
                         </button>
-                        <button class="ml-2" type="button"  onclick="document.getElementById('file-input').click();">
-                            <i class="fa fa-folder-open"></i>Open
+                        <button class="ml-2" type="button">
+                            <i class="fa fa-folder-open"></i>
                         </button>
-                        <button class="ml-2" type="button" id="runna">
-                            <i class="fa fa-folder-open"></i>Runna
-                        </button>
-                        <input type="file" id="file-input" class="d-none"/>
-                        <script>
-                            function readSingleFile() {
-                                const fi = document.getElementById('file-input')
-                                var file = fi.files[0];
-                                if (!file) {
-                                    return;
-                                }
-                                var reader = new FileReader();
-                                reader.onload = function(e) {
-                                    var contents = e.target.result;
-                                    displayContents(contents);
-                                };
-                                reader.readAsText(file);
-                            }
-                            function displayContents(contents) {
-                                var element = document.getElementById('output');
-                                element.textContent = contents;
-                            }
-                            document.getElementById('runna')
-                                .addEventListener('click', readSingleFile, false);
-                        </script>
                     </div>
                 </div>
             </div>
